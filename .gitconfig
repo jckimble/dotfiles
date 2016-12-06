@@ -1,0 +1,10 @@
+[user]
+	email = jckimble@thorbis.com
+	name = James C Kimble
+	signingkey = 59039D62BB8C934A
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+[commit]
+	gpgsign = true
