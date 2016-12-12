@@ -1,0 +1,13 @@
+#/bin/bash
+_gitClone(){
+	if [ -z "$COMPLETE" ]; then
+		local pass=`pass Misc/GithubOauth`
+		COMPLETE=$(for x in `curl https://api.github.com/user/repos\?access_token=${pass} 2>&1 | grep ssh_url | cut -d\" -f4`; do echo -n "${x} "; done);
+		export COMPLETE;
+	fi;
+	local cur=${COMP_WORDS[COMP_CWORD]}
+	if [ "${COMP_WORDS[0]}" == "git" -a "${COMP_WORDS[1]}" == "clone" ]; then
+		COMPREPLY=($(compgen -W "$COMPLETE" -- $cur))
+	fi;
+}
+complete -o nospace -F _gitClone git

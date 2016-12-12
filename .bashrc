@@ -22,6 +22,7 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 if [[ -z "$TMUX" ]]; then
 	tmux && exit
 fi;
+. ~/.config/bash_completion.d/github
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 pacaur2(){

@@ -7,6 +7,8 @@
 .gnupg/trustdb.gpg
 .gnupg/pubring.kbx~
 .gnupg/crls.d
+.gnupg/*.status
+*.gpg
 .config/Keybase
 .config/Trolltech.conf
 .config/autostart
