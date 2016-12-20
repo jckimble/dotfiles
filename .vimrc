@@ -25,6 +25,7 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'christophermca/meta5'
 Plugin 'vim-scripts/sql.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'vim-scripts/c.vim'
 
 if vundleInstalled == 1
