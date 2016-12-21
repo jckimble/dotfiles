@@ -16,6 +16,10 @@ pacman -Sy reflector --noconfirm
 reflector -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel ccid networkmanager terminus-font scrot xautolock openssh ttf-dejavu linux-headers slim i3 xorg firefox git tmux xclip keybase gvim grub conky feh compton redshift termite wget haveged jpegoptim nemo xloadimage msmtp virtualbox-guest-utils dkms
 #Optional ramdisk home with pam_homedir
+echo "session    required   pam_mkhomedir.so skel=/etc/skel umask=0077" >> /etc/pam.d/system-login
+if [ "$2" == "ramdisk" ]; then
+	mount -t tmpfs tmpfs /mnt/home
+fi;
 genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 arch-chroot /mnt locale-gen
