@@ -37,7 +37,7 @@ arch-chroot /mnt useradd -mg users -G wheel,storage,power -s /bin/bash archgpg
 echo "archgpg:archgpg" | arch-chroot /mnt chpasswd
 cp -a ./skel /mnt/etc
 cp ./aur.sh /mnt/aur.sh
-arch-chroot /mnt sudo -u sh aur.sh
+arch-chroot /mnt sudo -u archgpg sh aur.sh
 rm /mnt/aur.sh
 arch-chroot /mnt sed -i "s/simone/archgpg/" /etc/slim.conf
 arch-chroot /mnt sed -i 's/^#\(auto_login\s\+\)no/\1yes/' /etc/slim.conf
