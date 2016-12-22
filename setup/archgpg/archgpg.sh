@@ -5,13 +5,21 @@ n
 p
 1
 
++8G
+t
+c
+n
+p
+1
+
 
 t
 83
 w
 EOF
-mkfs.ext2 ${1}1
-mount ${1}1 /mnt
+mkfs.msdos -F 32 ${1}1
+mkfs.ext2 ${1}2
+mount ${1}2 /mnt
 pacman -Sy reflector --noconfirm
 reflector -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel ccid networkmanager terminus-font scrot xautolock openssh ttf-dejavu linux-headers slim i3 xorg firefox git tmux xclip keybase gvim grub conky feh compton redshift termite wget haveged jpegoptim nemo xloadimage msmtp virtualbox-guest-utils dkms
