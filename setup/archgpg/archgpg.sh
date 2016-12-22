@@ -11,15 +11,12 @@ t
 w
 EOF
 mkfs.ext2 ${1}1
-mount ${1}2 /mnt
+mount ${1}1 /mnt
 pacman -Sy reflector --noconfirm
 reflector -l 5 --sort rate --save /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel ccid networkmanager terminus-font scrot xautolock openssh ttf-dejavu linux-headers slim i3 xorg firefox git tmux xclip keybase gvim grub conky feh compton redshift termite wget haveged jpegoptim nemo xloadimage msmtp virtualbox-guest-utils dkms
-#Optional ramdisk home with pam_homedir
-echo "session    required   pam_mkhomedir.so skel=/etc/skel umask=0077" >> /etc/pam.d/system-login
-if [ "$2" == "ramdisk" ]; then
-	mount -t tmpfs tmpfs /mnt/home
-fi;
+echo "session    required   pam_mkhomedir.so skel=/etc/skel umask=0077" >> /mnt/etc/pam.d/system-login
+mount -t tmpfs tmpfs /mnt/home
 genfstab -U -p /mnt >> /mnt/etc/fstab
 arch-chroot /mnt sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 arch-chroot /mnt locale-gen
@@ -39,4 +36,4 @@ arch-chroot /mnt useradd -mg users -G wheel,storage,power -s /bin/bash archgpg
 echo "archgpg:archgpg" | arch-chroot /mnt chpasswd
 cp -a ./skel /mnt/etc
 arch-chroot /mnt sed -i "s/simone/archgpg/" /etc/slim.conf
-#install caff
+arch-chroot /mnt sed -i 's/^#\(auto_login\s\+\)no/\1yes/' /etc/slim.conf
