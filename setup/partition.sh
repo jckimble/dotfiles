@@ -7,7 +7,7 @@ p
 
 +512M
 t
-83
+ef
 n
 p
 2
@@ -34,7 +34,7 @@ t
 83
 w
 EOF
-mkfs.ext2 ${1}1
+mkfs.fat -F32 ${1}1
 mkfs.ext4 ${1}2
 mkswap ${1}3
 mkfs.ext4 ${1}4
