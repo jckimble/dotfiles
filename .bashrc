@@ -28,6 +28,10 @@ PS1='[\u@\h \W]\$ '
 pacaur2(){
 git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -si
 }
+dockerclean(){
+docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
+docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
+}
 retry(){
 $@
 if [ ! $? -eq 0 ]; then
@@ -41,3 +45,4 @@ devserv(){
 browser-sync start --proxy 127.0.0.1:7000 --files . 1>/dev/null 2>&1 &
 php -S 127.0.0.1:7000
 }
+sudo sysctl -w vm.max_map_count=262144
