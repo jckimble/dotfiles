@@ -44,6 +44,7 @@ ${image ~/.config/pianobar/coverArt -s 100x100 -p 0,115 -n}
 ${voffset -35}${offset 110}Title: ${offset 15}${exec cat ~/.config/pianobar/title}
 ${offset 110}Artist: ${offset 7}${exec cat ~/.config/pianobar/artist}
 ${offset 110}Album: ${offset 0}${exec cat ~/.config/pianobar/album}
+${offset 110}Station: ${offset 0}${exec cat ~/.config/pianobar/station}
 
 
 
