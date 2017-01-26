@@ -45,4 +45,8 @@ devserv(){
 browser-sync start --proxy 127.0.0.1:7000 --files . 1>/dev/null 2>&1 &
 php -S 127.0.0.1:7000
 }
-sudo sysctl -w vm.max_map_count=262144
+cd(){
+	builtin cd $@
+	[ -f './.env' ] && . .env
+}
+sudo sysctl -w vm.max_map_count=262144 > /dev/null 2>&1
