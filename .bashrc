@@ -49,4 +49,5 @@ cd(){
 	builtin cd $@
 	[ -f './.env' ] && . .env
 }
+[ -f './.env' ] && . .env
 sudo sysctl -w vm.max_map_count=262144 > /dev/null 2>&1

@@ -94,4 +94,3 @@ exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec --no-startup-id redshift
 exec --no-startup-id conky
 exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1"' &
-exec --no-startup-id x11vnc -display :0 -auth .Xauthority -forever -usepw -bg -ssl >/dev/null 2>&1
