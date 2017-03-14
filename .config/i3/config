@@ -20,12 +20,12 @@ bindsym $mod+t exec echo -e '-' > ~/.config/pianobar/ctl
 # like song pianobar
 bindsym $mod+o exec echo -e '+' > ~/.config/pianobar/ctl
 #audio
-bindsym XF86AudioRaiseVolume exec pamixer --increase 5% --unmute
-bindsym XF86AudioLowerVolume exec pamixer --decrease 5% --unmute
+bindsym XF86AudioRaiseVolume exec pamixer --increase 5 --unmute
+bindsym XF86AudioLowerVolume exec pamixer --decrease 5 --unmute
 bindsym XF86AudioMute exec pamixer --mute
 #backlight
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh +10
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh -5
 #display
 #bindsym XF86Display exec
 # kill focused window
