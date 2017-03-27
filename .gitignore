@@ -32,3 +32,4 @@
 .config/pianobar/title
 .config/pulse
 .config/pianobar/station
+.config/systemd
