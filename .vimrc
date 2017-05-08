@@ -20,13 +20,13 @@ Plugin 'StanAngeloff/php.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'amirh/HTML-AutoCloseTag'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'christophermca/meta5'
 Plugin 'vim-scripts/sql.vim'
 Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'vim-scripts/c.vim'
+Plugin 'fatih/vim-go'
 
 if vundleInstalled == 1
 	:PluginInstall
@@ -45,7 +45,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set shiftround
-set clipboard=unnamed
+set clipboard=unnamedplus
 set ttyfast
 set foldmethod=syntax
 set foldnestmax=10

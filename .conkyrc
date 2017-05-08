@@ -40,11 +40,11 @@ ${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color FFA300}HD ${offset 5}
 
 
 ${if_running pianobar}
-${image ~/.config/pianobar/coverArt -s 100x100 -p 0,115 -n}
-${voffset -35}${offset 110}Title: ${offset 15}${exec cat ~/.config/pianobar/title}
-${offset 110}Artist: ${offset 7}${exec cat ~/.config/pianobar/artist}
-${offset 110}Album: ${offset 0}${exec cat ~/.config/pianobar/album}
-${offset 110}Station: ${offset 0}${exec cat ~/.config/pianobar/station}
+${image ~/.config/pianobar/coverArt -s 100x100 -p 50,125 -n}
+${voffset -25}${offset 160}Title: ${offset 15}${exec cat ~/.config/pianobar/title}
+${offset 160}Artist: ${offset 7}${exec cat ~/.config/pianobar/artist}
+${offset 160}Album: ${offset 0}${exec cat ~/.config/pianobar/album}
+${offset 160}Station: ${offset 0}${exec cat ~/.config/pianobar/station}
 
 
 

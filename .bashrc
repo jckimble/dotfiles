@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-export PATH=$PATH:/home/jckimble/.gem/ruby/2.2.0/bin
+export PATH=$PATH:/home/jckimble/.gem/ruby/2.4.0/bin
 export TERM=screen-256color
 export PASSWORD_STORE_X_SELECTION=primary
 #Start gpg-agent if not already running
@@ -25,7 +25,9 @@ fi;
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 pacaur2(){
-git clone https://aur.archlinux.org/$1.git && cd $1 && makepkg -si
+git clone https://aur.archlinux.org/$1.git
+cd $1
+makepkg -si
 }
 dockerclean(){
 docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
@@ -44,9 +46,15 @@ devserv(){
 browser-sync start --proxy 127.0.0.1:7000 --files . 1>/dev/null 2>&1 &
 php -S 127.0.0.1:7000
 }
+fuckgo(){
+	go get `go build . 2>&1 | cut -d \" -f2 | grep -v GO`
+}
 cd(){
-	builtin cd $@
+	builtin cd "$@"
 	[ -f './.env' ] && . .env
 }
 [ -f './.env' ] && . .env
 sudo sysctl -w vm.max_map_count=262144 > /dev/null 2>&1
+export KUBERNETES_PROVIDER=vagrant
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
