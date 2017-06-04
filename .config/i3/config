@@ -65,6 +65,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym $mod+Right workspace next
+bindsym $mod+Left workspace prev
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -94,4 +96,5 @@ exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.jpg
 exec --no-startup-id redshift
 exec --no-startup-id conky
 exec --no-startup-id numlockx on
+exec --no-startup-id /usr/bin/libinput-gestures-setup start
 exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1"' &
