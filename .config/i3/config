@@ -92,7 +92,7 @@ bar {
 new_window none
 exec --no-startup-id ~/.config/i3/vbcheck.sh
 exec --no-startup-id /usr/bin/compton
-exec --no-startup-id feh --bg-fill ~/.config/i3/wallpaper.jpg
+exec --no-startup-id feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/
 exec --no-startup-id redshift
 exec --no-startup-id conky
 exec --no-startup-id numlockx on
