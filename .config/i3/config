@@ -80,7 +80,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 # reload the configuration file
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+o exec scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1
+bindsym $mod+Shift+o exec scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1 && feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/
 bindsym $mod+Shift+r exec reboot
 bindsym $mod+Shift+s exec shutdown -h now
 bindsym $mod+Shift+e exec killall -u `whoami`
@@ -97,4 +97,4 @@ exec --no-startup-id redshift
 exec --no-startup-id conky
 exec --no-startup-id numlockx on
 exec --no-startup-id /usr/bin/libinput-gestures-setup start
-exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1"' &
+exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1 && feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/"' &
