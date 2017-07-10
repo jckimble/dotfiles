@@ -35,3 +35,4 @@
 .config/systemd
 .config/transmission
 .config/Riot
+.gnupg/tofu.db
