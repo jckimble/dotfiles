@@ -97,4 +97,6 @@ exec --no-startup-id redshift
 exec --no-startup-id conky
 exec --no-startup-id numlockx on
 exec --no-startup-id /usr/bin/libinput-gestures-setup start
+exec --no-startup-id keybase -d --log-file="/var/log/keybase.service.log" service --auto-forked
+exec --no-startup-id kbfsfuse -log-to-file /keybase
 exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1 && feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/"' &

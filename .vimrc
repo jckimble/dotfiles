@@ -27,6 +27,7 @@ Plugin 'vim-scripts/SQLComplete.vim'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'vim-scripts/c.vim'
 Plugin 'fatih/vim-go'
+Plugin 'wakatime/vim-wakatime'
 
 if vundleInstalled == 1
 	:PluginInstall
