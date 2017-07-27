@@ -137,4 +137,7 @@ services:
 
 users:
 - username: jckimble
+  groups:
+  - wheel
+  - docker
   command: ./run.sh
