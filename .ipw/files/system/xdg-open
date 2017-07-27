@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ $1 == http* ]]; then
+firefox $1
+else
+echo $1 > /tmp/open.txt
+fi;

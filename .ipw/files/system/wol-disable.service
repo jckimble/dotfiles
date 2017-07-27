@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable Wake On Lan
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ethtool -s eno1 wol d
+RemainAfterExit=true
+ExecStop=/usr/bin/ethtool -s eno1 wol d
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

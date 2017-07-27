@@ -36,3 +36,5 @@
 .config/transmission
 .config/Riot
 .gnupg/tofu.db
+.ipw/ipw.aes
+.ipw/private.yml
