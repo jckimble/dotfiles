@@ -31,8 +31,7 @@ packages:
 - name: transmission-gtk
 - name: yubikey-manager
 - name: gedit
-- name: textlive-most
-- name: vim-plugins
+- name: texlive-most
 - name: xorg-drivers
 - name: xorg-apps
 - name: imagemagick
@@ -94,6 +93,7 @@ packages:
 - name: gvim
 - name: conky
 - name: feh
+- name: vim-plugins
 - name: pianobar
 - name: compton
 - name: eog
