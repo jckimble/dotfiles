@@ -93,7 +93,6 @@ packages:
 - name: gvim
 - name: conky
 - name: feh
-- name: vim-plugins
 - name: pianobar
 - name: compton
 - name: eog
