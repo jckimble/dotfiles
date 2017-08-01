@@ -139,4 +139,4 @@ users:
   groups:
   - wheel
   - docker
-  command: /bin/bash run.sh
+  command: run.sh
