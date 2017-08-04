@@ -2,7 +2,7 @@
 pacman -Sy puppet --noconfirm --needed
 /bin/cat <<EOF >/etc/puppetlabs/puppet/puppet.conf
 [main]
-certname={{.Hostname}}
+{{if .Hostname}}certname={{.Hostname}}{{end}}
 server={{.Server}}
 environment=production
 csr_attributes=/etc/puppetlabs/puppet/csr_attributes.yaml
