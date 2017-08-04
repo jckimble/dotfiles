@@ -118,13 +118,12 @@ packages:
   files:
   - src: files/system/pacman.conf
     dest: /etc/pacman.conf
-
 - name: keybase-bin
 - name: libinput-gestures
 - name: jet
 - name: ngrok
 
-  files:
+files:
 - src: files/system/wol-disable.service
   dest: /etc/systemd/system/wol-disable.service
 - src: files/system/laptop.conf
@@ -133,7 +132,6 @@ packages:
   dest: /etc/tmpfiles.d/custom.conf
 - src: files/system/xdg-open
   dest: /usr/local/bin/xdg-open
-
 
 services:
 - wol-disable
