@@ -1,29 +1,3 @@
-files:
-- src: files/system/pacman.conf
-  dest: /etc/pacman.conf
-
-- src: pkg/custom.db.tar.gz
-  dest: /opt/pkg/custom.db.tar.gz
-- src: pkg/custom.files.tar.gz
-  dest: /opt/pkg/custom.files.tar.gz
-- src: pkg/jet-1.18.0-1-x86_64.pkg.tar.xz
-  dest: /opt/pkg/jet-1.18.0-1-x86_64.pkg.tar.xz
-- src: pkg/keybase-bin-1.0.27_20170802161439+b6dff3f9a-1-x86_64.pkg.tar.xz
-  dest: /opt/pkg/keybase-bin-1.0.27_20170802161439+b6dff3f9a-1-x86_64.pkg.tar.xz
-- src: pkg/libinput-gestures-2.28-1-any.pkg.tar.xz
-  dest: /opt/pkg/libinput-gestures-2.28-1-any.pkg.tar.xz
-- src: pkg/ngrok-2.1.18-1-x86_64.pkg.tar.xz
-  dest: /opt/pkg/ngrok-2.1.18-1-x86_64.pkg.tar.xz
-
-- src: files/system/wol-disable.service
-  dest: /etc/systemd/system/wol-disable.service
-- src: files/system/laptop.conf
-  dest: /etc/sysctl.d/laptop.conf
-- src: files/system/custom.conf
-  dest: /etc/tmpfiles.d/custom.conf
-- src: files/system/xdg-open
-  dest: /usr/local/bin/xdg-open
-
 packages:
 - name: acpid
 - name: bind-tools 
@@ -145,6 +119,19 @@ packages:
 - name: libinput-gestures
 - name: jet
 - name: ngrok
+
+  files:
+- src: files/system/pacman.conf
+  dest: /etc/pacman.conf
+- src: files/system/wol-disable.service
+  dest: /etc/systemd/system/wol-disable.service
+- src: files/system/laptop.conf
+  dest: /etc/sysctl.d/laptop.conf
+- src: files/system/custom.conf
+  dest: /etc/tmpfiles.d/custom.conf
+- src: files/system/xdg-open
+  dest: /usr/local/bin/xdg-open
+
 
 services:
 - wol-disable
