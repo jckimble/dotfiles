@@ -114,6 +114,10 @@ packages:
 - name: powertop
   services:
   - powertop
+- name: pacman
+  files:
+  - src: files/system/pacman.conf
+    dest: /etc/pacman.conf
 
 - name: keybase-bin
 - name: libinput-gestures
@@ -121,8 +125,6 @@ packages:
 - name: ngrok
 
   files:
-- src: files/system/pacman.conf
-  dest: /etc/pacman.conf
 - src: files/system/wol-disable.service
   dest: /etc/systemd/system/wol-disable.service
 - src: files/system/laptop.conf
