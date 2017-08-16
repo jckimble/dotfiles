@@ -11,7 +11,7 @@
 		<mount source="/dev/sda3" target="/mnt/home" order="3" />
 	</storage>{{if .Hostname}}
 	<network hostname="{{.Hostname}}" />{{end}}
-	<system timezone="America/Chicago" locale="en_US.UTF-8" chrootpath="/mnt" reboot="true" />
+	<system rootpass="!disabled" timezone="America/Chicago" locale="en_US.UTF-8" chrootpath="/mnt" reboot="true" />
 	<bootloader type="systemd" efi="true" target="/boot/" />
 	<scripts>
 		<script uri="https://{{.Server}}/files/{{.AuthKey}}/{{if .Hostname}}{{.Hostname}}/{{end}}provision.sh" order="1" execution="post" />
