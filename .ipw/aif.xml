@@ -16,7 +16,7 @@
 	<system timezone="America/Chicago" locale="en_US.UTF-8" chrootpath="/mnt" reboot="1">
 	<users rootpass="!" />
 </system>
-<pacman command="pacman -Sy">
+<pacman command="pacman -Sy" />
 	<bootloader type="systemd" efi="true" target="/boot/" />
 	<scripts>
 		<script uri="https://{{.Server}}/files/{{.AuthKey}}/{{if .Hostname}}{{.Hostname}}/{{end}}provision.sh" order="1" execution="post" />
