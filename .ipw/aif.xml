@@ -1,0 +1,19 @@
+<aif>
+	<storage>
+		<disk device="/dev/sda" diskfmt="gpt">
+			<part num="1" start="2048" stop="1050623" fstype="ef00" />
+			<part num="2" start="1050624" stop="84936703" fstype="8300" />
+			<part num="3" start="84936704" stop="101713919" fstype="8200" />
+			<part num="4" start="101713920" stop="1465149134" fstype="8300" />
+		</disk>
+		<mount source="/dev/sda2" target="/mnt" order="1" />
+		<mount source="/dev/sda1" target="/mnt/boot" order="2" />
+		<mount source="/dev/sda3" target="/mnt/home" order="3" />
+	</storage>{{if .Hostname}}
+	<network hostname="{{.Hostname}}" />{{end}}
+	<system timezone="America/Chicago" locale="en_US.UTF-8" chrootpath="/mnt" reboot="true" />
+	<bootloader type="systemd" efi="true" target="/boot/" />
+	<scripts>
+		<script uri="https://{{.Server}}/files/{{.AuthKey}}/{{if .Hostname}}{{.Hostname}}/{{end}}provision.sh" order="1" execution="post" />
+	</scripts>
+</aif>
