@@ -8,7 +8,7 @@
 		</disk>
 		<mount source="/dev/sda2" target="/mnt" order="1" />
 		<mount source="/dev/sda1" target="/mnt/boot" order="2" />
-		<mount source="/dev/sda3" target="/mnt/home" order="3" />
+		<mount source="/dev/sda4" target="/mnt/home" order="3" />
 	</storage>{{if .Hostname}}
 	<network hostname="{{.Hostname}}">
 		<iface device="auto" address="auto" netproto="ipv4" />
