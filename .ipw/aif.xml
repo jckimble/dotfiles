@@ -16,7 +16,7 @@
 	<system timezone="America/Chicago" locale="en_US.UTF-8" chrootpath="/mnt" reboot="1">
 		<users rootpass="!" />
 	</system>
-	<pacman command="pacman -Sy">
+	<pacman command="pacman --noconfirm -Sy">
 		<repos>
 			<repo name="core" enabled="true" siglevel="default" mirror="file:///etc/pacman.d/mirrorlist" />
 			<repo name="extra" enabled="true" siglevel="default" mirror="file:///etc/pacman.d/mirrorlist" />
