@@ -4,6 +4,7 @@
 certname={{.Hostname}}{{end}}
 server={{.Server}}
 environment=production
+storeconfigs=false
 csr_attributes=/etc/puppetlabs/puppet/csr_attributes.yaml
 EOF
 /bin/cat <<EOF >/etc/puppetlabs/puppet/csr_attributes.yaml
