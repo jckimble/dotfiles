@@ -35,6 +35,9 @@
 .config/systemd
 .config/transmission
 .config/Riot
+.config/an2linux/authorized_certs
+.config/an2linux/certificate.pem
+.config/an2linux/rsakey.pem
 .gnupg/tofu.db
 .ipw/ipw.aes
 .ipw/private.yml

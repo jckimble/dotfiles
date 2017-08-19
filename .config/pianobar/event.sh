@@ -13,6 +13,7 @@ case "$1" in
 		echo -e "$artist" > ~/.config/pianobar/artist
 		echo -e "$title" > ~/.config/pianobar/title
 		curl $coverArt --output ~/.config/pianobar/coverArt
+		notify-send 'Song Playing' "$artist - $title" --icon=$HOME/.config/pianobar/coverArt
 	;;
 esac
 
