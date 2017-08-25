@@ -5,6 +5,8 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 # start firefox
 bindsym $mod+b exec firefox
+# start utox
+bindsym $mod+u exec utox
 # start chat (riot-desktop)
 bindsym $mod+c exec riot-desktop
 bindsym $mod+Shift+c exec /opt/keybase/Keybase

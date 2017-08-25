@@ -28,7 +28,7 @@ Plugin 'tell-k/vim-autopep8'
 Plugin 'vim-scripts/c.vim'
 Plugin 'fatih/vim-go'
 Plugin 'wakatime/vim-wakatime'
-
+Plugin 'gilsondev/searchtasks.vim'
 if vundleInstalled == 1
 	:PluginInstall
 endif
@@ -112,3 +112,5 @@ nmap <silent> <leader>y :NERDTreeFind<cr>
 nmap <silent> <leader>ps :!sh ~/.config/pianobar/toggle.sh<cr><cr>
 nmap <silent> <leader>pn :!echo -e 'n' > ~/.config/pianobar/ctl<cr><cr>
 nmap <silent> <leader>pp :!echo -e 'p' > ~/.config/pianobar/ctl<cr><cr>
+
+nmap <silent> <leader>td :SearchTasks **/*<cr>
