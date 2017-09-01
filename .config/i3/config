@@ -99,6 +99,7 @@ exec --no-startup-id /usr/bin/compton
 exec --no-startup-id feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/
 exec --no-startup-id redshift
 exec --no-startup-id conky
+exec --no-startup-id lighttower watch
 exec --no-startup-id numlockx on
 exec --no-startup-id /usr/bin/libinput-gestures-setup start
 exec --no-startup-id keybase -d --log-file="/var/log/keybase.service.log" service --auto-forked

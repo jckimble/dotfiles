@@ -42,3 +42,4 @@
 .ipw/ipw.aes
 .ipw/private.yml
 .config/tox
+.config/neofetch/
