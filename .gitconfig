@@ -4,6 +4,7 @@
 	signingkey = 59039D62BB8C934A
 [push]
 	default = simple
+	followTags = true
 [branch]
 	autosetuprebase = always
 [commit]

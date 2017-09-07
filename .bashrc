@@ -1,7 +1,8 @@
 #
 # ~/.bashrc
 #
-export PATH=$PATH:/home/jckimble/.gem/ruby/2.4.0/bin
+export GOPATH=$(go env GOPATH)
+export PATH=$PATH:$GOPATH/bin
 export TERM=screen-256color
 export PASSWORD_STORE_X_SELECTION=primary
 #Start gpg-agent if not already running
