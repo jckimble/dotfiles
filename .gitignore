@@ -43,3 +43,6 @@
 .ipw/private.yml
 .config/tox
 .config/neofetch/
+.weechat/logs/
+.weechat/weechat.log
+.weechat

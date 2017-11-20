@@ -1,6 +1,11 @@
 set $mod Mod1
 font pango:monospace 8
 floating_modifier $mod
+#i3-gaps
+gaps inner 5
+gaps outer 0
+smart_gaps on
+
 # start a terminal
 bindsym $mod+Return exec termite
 # start firefox
@@ -93,6 +98,7 @@ bar {
 		hidden_state hide
 		modifier none
 }
+for_window [class="Pinentry" instance="pinentry"] floating enable
 new_window none
 exec --no-startup-id ~/.config/i3/vbcheck.sh
 exec --no-startup-id /usr/bin/compton

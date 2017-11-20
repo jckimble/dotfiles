@@ -35,8 +35,8 @@ use_spacer none
 
 minimum_size 0 0
 TEXT
-${voffset 10}${color EAEAEA}${font Cantarell:pixelsize=90}${time %H:%M}${font}${voffset -54}${offset 10}${color FFA300}${font Cantarell:pixelsize=32}${time %d} ${voffset -7}${offset -4}${color EAEAEA}${font Cantarell:pixelsize=20}${time  %B} ${time %Y}${font}${voffset 10}${font Cantarell:pixelsize=43}${offset -116}${time %A}${font}${voffset 10}
-${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color FFA300}HD ${offset 5}$color${fs_used /} / ${fs_free /}${offset 10}${color FFA300}RAM ${offset 5}$color$mem / $memmax${offset 10}${color FFA300}CPU ${offset 5}$color${cpu cpu0}% ${offset 10}${color FFA300}BATT ${offset 5}$color${battery_percent BAT1}%
+${voffset 10}${color EAEAEA}${font Cantarell:pixelsize=90}${time %H:%M}${font}${voffset -54}${offset 10}${color 00A3FF}${font Cantarell:pixelsize=32}${time %d} ${voffset -7}${offset -4}${color EAEAEA}${font Cantarell:pixelsize=20}${time  %B} ${time %Y}${font}${voffset 10}${font Cantarell:pixelsize=43}${offset -116}${time %A}${font}${voffset 10}
+${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color 00A3FF}HD ${offset 5}$color${fs_used /} / ${fs_free /}${offset 10}${color 00A3FF}RAM ${offset 5}$color$mem / $memmax${offset 10}${color 00A3FF}CPU ${offset 5}$color${cpu cpu0}% ${offset 10}${color 00A3FF}BATT ${offset 5}$color${battery_percent BAT1}%
 
 
 ${if_running pianobar}
