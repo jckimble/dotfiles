@@ -19,13 +19,11 @@ packages:
 - name: yubikey-manager
 - name: gedit
 - name: texlive-most
-- name: xorg-drivers
 - name: xorg-apps
 - name: imagemagick
 - name: pamixer
 - name: bluez
 - name: bluez-libs
-- name: bluez-utils
 - name: bluez-firmware
 - name: pulseaudio-alsa
   files:
@@ -121,7 +119,6 @@ packages:
 - name: keybase-bin
 - name: libinput-gestures
 - name: jet
-- name: ngrok
 
 files:
 - src: files/system/wol-disable.service
@@ -142,3 +139,4 @@ users:
   - wheel
   - docker
   command: /bin/bash run.sh
+  gitrepo: https://github.com/jckimble/dotfiles.git
