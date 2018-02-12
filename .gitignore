@@ -46,3 +46,6 @@
 .weechat/logs/
 .weechat/weechat.log
 .weechat
+archinstall.sh
+.config/Signal
+.config/citra-emu

@@ -59,3 +59,4 @@ sudo sysctl -w vm.max_map_count=262144 > /dev/null 2>&1
 export KUBERNETES_PROVIDER=vagrant
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
+source ~/bash-wakatime/bash-wakatime.sh

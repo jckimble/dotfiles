@@ -2,9 +2,9 @@ set $mod Mod1
 font pango:monospace 8
 floating_modifier $mod
 #i3-gaps
-gaps inner 5
-gaps outer 0
-smart_gaps on
+#gaps inner 5
+#gaps outer 0
+#smart_gaps on
 
 # start a terminal
 bindsym $mod+Return exec termite
@@ -12,9 +12,9 @@ bindsym $mod+Return exec termite
 bindsym $mod+b exec firefox
 # start utox
 bindsym $mod+u exec utox
-# start chat (riot-desktop)
-bindsym $mod+c exec riot-desktop
-bindsym $mod+Shift+c exec /opt/keybase/Keybase
+# start chat
+bindsym $mod+c exec /opt/keybase/Keybase
+bindsym $mod+Shift+c exec signal-desktop
 # start nemo
 bindsym $mod+i exec nemo
 # toggle pianobar
@@ -108,7 +108,7 @@ exec --no-startup-id conky
 exec --no-startup-id lighttower watch
 exec --no-startup-id numlockx on
 exec --no-startup-id /usr/bin/libinput-gestures-setup start
-exec --no-startup-id keybase -d --log-file="/var/log/keybase.service.log" service --auto-forked
-exec --no-startup-id kbfsfuse -log-to-file /keybase
+#exec --no-startup-id keybase -d --log-file="/var/log/keybase.service.log" service --auto-forked 1>/dev/null 2>&1
+#exec --no-startup-id kbfsfuse -log-to-file /keybase 1>/var/log/kbfsfuse.log 2>&1
 exec --no-startup-id /usr/lib/notify-osd/notify-osd &
 exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1 && feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/"' &
