@@ -39,8 +39,6 @@
 .config/an2linux/certificate.pem
 .config/an2linux/rsakey.pem
 .gnupg/tofu.db
-.ipw/ipw.aes
-.ipw/private.yml
 .config/tox
 .config/neofetch/
 .weechat/logs/
@@ -50,3 +48,5 @@ archinstall.sh
 .config/Signal
 .config/citra-emu
 .config/Yubico
+iwrk.aes
+.iwrk/private.yml

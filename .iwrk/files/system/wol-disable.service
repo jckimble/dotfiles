@@ -3,9 +3,9 @@ Description=Disable Wake On Lan
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/ethtool -s eno1 wol d
+ExecStart=/usr/bin/ethtool -s enp1s0f1 wol d
 RemainAfterExit=true
-ExecStop=/usr/bin/ethtool -s eno1 wol d
+ExecStop=/usr/bin/ethtool -s enp1s0f1 wol d
 StandardOutput=journal
 
 [Install]
