@@ -49,3 +49,4 @@
 archinstall.sh
 .config/Signal
 .config/citra-emu
+.config/Yubico
