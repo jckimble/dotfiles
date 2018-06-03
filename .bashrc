@@ -26,12 +26,13 @@ fi;
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 pacaur2(){
+cd /tmp
 git clone https://aur.archlinux.org/$1.git
 cd $1
 makepkg -si
 }
 dockerclean(){
-docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
+docker ps --filter status=created --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
 docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
 docker volume ls -qf dangling=true | xargs -r docker volume rm
 }

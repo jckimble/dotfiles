@@ -50,3 +50,7 @@ archinstall.sh
 .config/Yubico
 iwrk.aes
 .iwrk/private.yml
+.config/Clementine
+.config/eog
+.config/gconf
+.config/mimeapps.list
