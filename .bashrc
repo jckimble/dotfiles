@@ -17,7 +17,7 @@ fi
 # Set GPG TTY
 export GPG_TTY=$(tty)
 # Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 if [[ -z "$TMUX" ]]; then
@@ -61,4 +61,3 @@ sudo sysctl -w vm.max_map_count=262144 > /dev/null 2>&1
 export KUBERNETES_PROVIDER=vagrant
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
-source ~/bash-wakatime/bash-wakatime.sh

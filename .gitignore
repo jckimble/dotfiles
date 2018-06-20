@@ -54,3 +54,4 @@ iwrk.aes
 .config/eog
 .config/gconf
 .config/mimeapps.list
+.config/gocode

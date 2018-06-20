@@ -12,25 +12,22 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
 Plugin 'benmills/vimux'
-Plugin 'tpope/vim-commentary'
 Plugin 'chriskempson/base16-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'spf13/vim-autoclose'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'christophermca/meta5'
-Plugin 'vim-scripts/sql.vim'
-Plugin 'vim-scripts/SQLComplete.vim'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'vim-scripts/c.vim'
 Plugin 'fatih/vim-go'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'gilsondev/searchtasks.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-syntastic/syntastic'
 if vundleInstalled == 1
 	:PluginInstall
+	:GoInstallBinaries
 endif
 
 call vundle#end()
@@ -108,9 +105,5 @@ nmap <silent> <leader>vc :VimuxCloseRunner<cr>
 nmap <silent> <leader>vo :VimuxPromptCommand<cr>
 nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>y :NERDTreeFind<cr>
-
-nmap <silent> <leader>ps :!sh ~/.config/pianobar/toggle.sh<cr><cr>
-nmap <silent> <leader>pn :!echo -e 'n' > ~/.config/pianobar/ctl<cr><cr>
-nmap <silent> <leader>pp :!echo -e 'p' > ~/.config/pianobar/ctl<cr><cr>
 
 nmap <silent> <leader>td :SearchTasks **/*<cr>
