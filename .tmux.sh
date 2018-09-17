@@ -1,8 +1,9 @@
 #!/bin/bash
 WIDTH=${1}
 MEDIUM=140
-if [ $MEDIUM -lt $WIDTH -a `ps aux | grep pianobar | wc -l` -gt 1 ]; then
-	echo -n "#[fg=colour24,bg=colour233,nobold]#[fg=colour232,bg=colour24,bold]#(cat ~/.config/pianobar/artist) - #(cat ~/.config/pianobar/title) #[fg=colour235,bg=colour24,nobold]"
+SONG=`mpc current`
+if [ ! -z "$SONG" ]; then
+	echo -n "#[fg=colour24,bg=colour233,nobold]#[fg=colour232,bg=colour24,bold]$SONG #[fg=colour235,bg=colour24,nobold]"
 else
 	echo -n "#[fg=colour235,bg=colour233,nobold]"
 fi;

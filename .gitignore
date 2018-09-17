@@ -55,3 +55,11 @@ iwrk.aes
 .config/gconf
 .config/mimeapps.list
 .config/gocode
+.config/GIMP
+.config/lab.hcl
+.config/yay/
+.config/mpd/database
+.config/mpd/socket
+.config/mpd/sticker.sql
+.config/mpd/state
+.config/mpd/pid

@@ -39,12 +39,14 @@ ${voffset 10}${color EAEAEA}${font Cantarell:pixelsize=90}${time %H:%M}${font}${
 ${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color 00A3FF}HD ${offset 5}$color${fs_used /} / ${fs_free /}${offset 10}${color 00A3FF}RAM ${offset 5}$color$mem / $memmax${offset 10}${color 00A3FF}CPU ${offset 5}$color${cpu cpu0}% ${offset 10}${color 00A3FF}BATT ${offset 5}$color${battery_percent BAT1}%
 ${offset 377}${battery_time BAT1}
 
-${if_running pianobar}
-${image ~/.config/pianobar/coverArt -s 100x100 -p 50,125 -n}
-${voffset -25}${offset 160}Title: ${offset 15}${exec cat ~/.config/pianobar/title}
-${offset 160}Artist: ${offset 7}${exec cat ~/.config/pianobar/artist}
-${offset 160}Album: ${offset 0}${exec cat ~/.config/pianobar/album}
-${offset 160}Station: ${offset 0}${exec cat ~/.config/pianobar/station}
+${if_mpd_playing}
+
+${execi 5 ~/.config/mpd/cover.sh}
+${image /tmp/cover.jpg -s 100x100 -p 40,150 -n}
+${voffset -45}${offset 160}Title: ${offset 15}$mpd_title
+${offset 160}Artist: ${offset 7}$mpd_artist
+${offset 160}Album: ${offset 0}$mpd_album
+
 
 
 

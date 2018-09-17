@@ -7,28 +7,24 @@ floating_modifier $mod
 #smart_gaps on
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec termite -e /usr/bin/tmux
 # start firefox
 bindsym $mod+b exec firefox
 # start utox
 bindsym $mod+u exec utox
 # start chat
-bindsym $mod+c exec /opt/keybase/Keybase
-bindsym $mod+Shift+c exec signal-desktop
+bindsym $mod+c exec signal-desktop
 # start nemo
 bindsym $mod+i exec nemo
-# toggle pianobar
-bindsym $mod+m exec ~/.config/pianobar/toggle.sh
-# next song pianobar
-bindsym $mod+n exec echo -e 'n' > ~/.config/pianobar/ctl
-bindsym XF86AudioNext echo -e 'n' > ~/.config/pianobar/ctl
-# pause song pianobar
-bindsym $mod+p exec echo -e 'p' > ~/.config/pianobar/ctl
-bindsym XF86AudioPlay exec echo -e 'p' > ~/.config/pianobar/ctl
-# hate song pianobar
-bindsym $mod+t exec echo -e '-' > ~/.config/pianobar/ctl
-# like song pianobar
-bindsym $mod+o exec echo -e '+' > ~/.config/pianobar/ctl
+# toggle music
+bindsym $mod+m exec mpc -q toggle
+bindsym XF86AudioPlay exec mpc -q toggle
+# next song
+bindsym $mod+n exec mpc -q next
+bindsym XF86AudioNext exec mpc -q next
+# prev song
+bindsym $mod+p exec mpc -q prev
+bindsym XF86AudioPrev exec mpc -q prev
 #audio
 bindsym XF86AudioRaiseVolume exec pamixer --increase 5 --unmute
 bindsym XF86AudioLowerVolume exec pamixer --decrease 5 --unmute
@@ -93,6 +89,7 @@ bindsym $mod+Shift+o exec scrot /tmp/screenshot.png && convert /tmp/screenshot.p
 bindsym $mod+Shift+r exec reboot
 bindsym $mod+Shift+s exec shutdown -h now
 bindsym $mod+Shift+e exec killall -u `whoami`
+bindsym $mod+Shift+x exec /usr/local/bin/toggle-screen
 bar {
         mode invisible
 		hidden_state hide
@@ -103,12 +100,10 @@ new_window none
 exec --no-startup-id ~/.config/i3/vbcheck.sh
 exec --no-startup-id /usr/bin/compton
 exec --no-startup-id feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/
+exec --no-startup-id mpd
 exec --no-startup-id redshift
 exec --no-startup-id conky
-exec --no-startup-id lighttower watch
 exec --no-startup-id numlockx on
 exec --no-startup-id /usr/bin/libinput-gestures-setup start
-#exec --no-startup-id keybase -d --log-file="/var/log/keybase.service.log" service --auto-forked 1>/dev/null 2>&1
-#exec --no-startup-id kbfsfuse -log-to-file /keybase 1>/var/log/kbfsfuse.log 2>&1
 exec --no-startup-id /usr/lib/notify-osd/notify-osd &
 exec --no-startup-id xautolock -time 10 -locker '/bin/bash -c "scrot /tmp/screenshot.png && convert /tmp/screenshot.png -blur 0x5 /tmp/screenshot.png && i3lock -e -u -i /tmp/screenshot.png && sleep 1 && feh -z -p --no-fehbg --bg-fill ~/.config/i3/wallpapers/"' &

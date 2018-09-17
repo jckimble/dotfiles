@@ -33,6 +33,9 @@ endif
 call vundle#end()
 filetype plugin indent on
 
+set nobackup
+set nowritebackup
+
 set nocompatible
 set autoread
 set backspace=indent,eol,start
