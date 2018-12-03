@@ -1,0 +1,5 @@
+{{define "conkyrc" -}}
+{{range $i,$e := . -}}
+conky.config.color{{add $i 1}}="{{hex $e}}"
+{{end}}
+{{- end}}

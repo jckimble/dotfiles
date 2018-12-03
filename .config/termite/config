@@ -3,4 +3,4 @@ background=rgba(0,0,0,0.6)
 foreground=#DDDDDD
 
 [options]
-fond=Monospace 9
+font=Monospace 9

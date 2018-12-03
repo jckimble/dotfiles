@@ -1,9 +1,9 @@
-#!/bin/bash
-FILES=".bashrc .conkyrc .gitconfig .tmux.conf .tmux.sh .tmux-blue.tmuxtheme .vimrc .xinitrc"
+#!/bin/bash -e
+FILES=".bashrc .conkyrc .gitconfig .tmux.conf .vimrc .xinitrc"
 DIRS=".gnupg .config .m2 .password-store .weechat"
 for file in $FILES; do
-	ln -f $file ../$file
+	ln -sf dotfiles/$file
 done
 for dir in $DIRS; do
-	ln -sf dotfiles/$dir ../$dir
+	ln -sf dotfiles/$dir
 done

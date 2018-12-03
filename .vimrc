@@ -66,11 +66,21 @@ let base16colorspace=256
 set t_Co=256
 set background=dark
 colorscheme meta5
+
+function! SourceIfExists(file)
+	if filereadable(expand(a:file))
+		exe 'source' a:file
+	endif
+endfunction
+call SourceIfExists("~/.cache/colorize/vimrc")
 hi Normal ctermbg=NONE
+hi StatusLine ctermbg=NONE
 function! BgToggle()
 	if(synIDattr(synIDtrans(hlID('Normal')),'bg')==233)
+		hi StatusLine ctermbg=NONE
 		hi Normal ctermbg=NONE
 	else
+		hi StatusLine ctermbg=233
 		hi Normal ctermbg=233
 	endif
 endfunction

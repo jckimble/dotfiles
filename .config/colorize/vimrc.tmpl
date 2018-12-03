@@ -1,0 +1,8 @@
+{{define "vimrc" -}}
+{{- $color:=to256 (index . 1)}}
+{{- $colorlight:=to256 (index . 1)}}
+hi StatusLine ctermfg={{$color}}
+hi Folded ctermfg={{$color}}
+hi NonText ctermfg={{$color}}
+hi Directory ctermfg={{$colorlight}}
+{{end}}
