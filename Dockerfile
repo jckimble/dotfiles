@@ -19,6 +19,6 @@ ENV TERM screen-256color
 WORKDIR /home/jckimble
 RUN cd /home/jckimble && ./dotfiles/run.sh
 RUN go get gitlab.com/jckimble/colorize && /home/jckimble/go/bin/colorize /home/jckimble/.config/wallpapers/bluesmoke.png
-VOLUME ["/home/jckimble/.gnupg/S.gpg-agent.extra","/run/docker.sock"]
+VOLUME ["/home/jckimble/.gnupg/S.gpg-agent","/home/jckimble/.gnupg/S.gpg-agent.ssh","/run/docker.sock"]
 ENTRYPOINT ["/usr/local/bin/dsinit"]
 CMD ["/usr/bin/tmux"]

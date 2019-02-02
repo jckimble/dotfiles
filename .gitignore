@@ -65,3 +65,9 @@ iwrk.aes
 .config/mpd/pid
 .config/labstrap.yaml
 .gnupg/openpgp-revocs.d
+.config/Android Open Source Project
+.config/MusicBrainz
+.config/QtProject.conf
+.config/cava
+.config/mpd/playlists
+.m2/repository
