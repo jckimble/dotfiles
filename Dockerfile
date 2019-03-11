@@ -1,4 +1,4 @@
-FROM base/archlinux:latest
+FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
 RUN pacman -Syu --noconfirm vim git tmux go docker docker-compose openssh sudo wget python-pywal
