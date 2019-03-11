@@ -71,3 +71,5 @@ iwrk.aes
 .config/cava
 .config/mpd/playlists
 .m2/repository
+.config/snes9x
+.config/vlc

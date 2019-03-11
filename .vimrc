@@ -18,13 +18,17 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'spf13/vim-autoclose'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'christophermca/meta5'
+
+Plugin 'dylanaraps/wal.vim'
+
 Plugin 'fatih/vim-go'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'plasticboy/vim-markdown'
 
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
+
+Plugin 'wakatime/vim-wakatime'
 if vundleInstalled == 1
 	:PluginInstall
 	:GoInstallBinaries
@@ -65,14 +69,8 @@ set encoding=utf8
 let base16colorspace=256
 set t_Co=256
 set background=dark
-colorscheme meta5
+colorscheme wal
 
-function! SourceIfExists(file)
-	if filereadable(expand(a:file))
-		exe 'source' a:file
-	endif
-endfunction
-call SourceIfExists("~/.cache/colorize/vimrc")
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=NONE
 function! BgToggle()

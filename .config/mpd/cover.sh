@@ -1,5 +1,4 @@
 #!/bin/bash
-echo $LASTFM_APIKEY > /tmp/lastfm.txt
 mkdir -p $HOME/.cache/mpd_album
 SONG=`mpc -f %file% current`
 ALBUM=`mpc -f %album% current`
