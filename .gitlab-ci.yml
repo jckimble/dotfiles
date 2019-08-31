@@ -18,7 +18,7 @@ build:
     stage: build
     script:
         - docker pull $CONTAINER_IMAGE:latest || true
-        - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF .
+        - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF -f .config/Dockerfile .
         - docker push $CONTAINER_IMAGE:$CI_BUILD_REF
 
 release:

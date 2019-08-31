@@ -1,4 +1,4 @@
-set $mod Mod1
+set $mod Mod4
 font pango:monospace 8
 floating_modifier $mod
 #i3-gaps
@@ -15,7 +15,9 @@ bindsym $mod+u exec utox
 # start chat
 bindsym $mod+c exec signal-desktop
 # start nemo
-bindsym $mod+i exec nemo
+bindsym $mod+i exec ranger
+# start rofi
+bindsym $mod+r exec rofi -show drun
 # toggle music
 bindsym $mod+m exec mpc -q toggle
 bindsym XF86AudioPlay exec mpc -q toggle
@@ -46,10 +48,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-# split in horizontal orientation
-bindsym $mod+r split h
-# split in vertical orientation
-bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
@@ -84,6 +82,8 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+a exec android-studio
 # reload the configuration file
 bindsym $mod+Shift+o exec ~/.config/i3/lock.sh
 bindsym $mod+Shift+r exec reboot

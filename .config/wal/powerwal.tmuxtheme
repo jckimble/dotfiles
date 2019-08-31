@@ -7,14 +7,14 @@ set -g status-fg colour238
 set -g status-bg colour233
 
 # Left side of status bar
-set -g status-left-bg colour233
-set -g status-left-fg colour243
+#set -g status-left-bg colour233
+#set -g status-left-fg colour243
 set -g status-left-length 40
 set -g status-left "#[fg=colour232,bg=cyan,bold] #S #[fg=cyan,bg=colour240,nobold]#[fg=colour233,bg=colour240] #(whoami) #[fg=colour240,bg=colour235]#[fg=colour240,bg=colour235] #I:#P #[fg=colour235,bg=colour233,nobold]"
 
 # Right side of status bar
-set -g status-right-bg colour233
-set -g status-right-fg colour243
+#set -g status-right-bg colour233
+#set -g status-right-fg colour243
 set -g status-right-length 150
 set -g status-right "#[fg=colour235,bg=colour233]#[fg=colour240,bg=colour235] %H:%M:%S #[fg=colour240,bg=colour235]#[fg=colour233,bg=colour240] %d-%b-%y #[fg=cyan,bg=colour240]#[fg=colour232,bg=cyan,bold] #(grep POWER_SUPPLY_CAPACITY= /sys/class/power_supply/BAT1/uevent | cut -d= -f2)% "
 
@@ -23,12 +23,12 @@ set -g window-status-format "  #I:#W#F  "
 set -g window-status-current-format "#[fg=colour233,bg=black]#[fg=cyan,nobold] #I:#W#F #[fg=colour233,bg=black,nobold]"
 
 # Current window status
-set -g window-status-current-bg cyan
-set -g window-status-current-fg colour233
+#set -g window-status-current-bg cyan
+#set -g window-status-current-fg colour233
 
 # Window with activity status
-set -g window-status-activity-bg cyan  # fg and bg are flipped here due to
-set -g window-status-activity-fg colour233 # a bug in tmux
+#set -g window-status-activity-bg cyan  # fg and bg are flipped here due to
+#set -g window-status-activity-fg colour233 # a bug in tmux
 
 # Window separator
 set -g window-status-separator ""
@@ -37,12 +37,12 @@ set -g window-status-separator ""
 set -g status-justify centre
 
 # Pane border
-set -g pane-border-bg default
-set -g pane-border-fg colour238
+#set -g pane-border-bg default
+#set -g pane-border-fg colour238
 
 # Active pane border
-set -g pane-active-border-bg default
-set -g pane-active-border-fg cyan
+#set -g pane-active-border-bg default
+#set -g pane-active-border-fg cyan
 
 # Pane number indicator
 set -g display-panes-colour colour233
@@ -53,13 +53,13 @@ set -g clock-mode-colour cyan
 set -g clock-mode-style 24
 
 # Message
-set -g message-bg cyan
-set -g message-fg black
+#set -g message-bg cyan
+#set -g message-fg black
 
 # Command message
-set -g message-command-bg colour233
-set -g message-command-fg black
+#set -g message-command-bg colour233
+#set -g message-command-fg black
 
 # Mode
-set -g mode-bg cyan
-set -g mode-fg colour231
+#set -g mode-bg cyan
+#set -g mode-fg colour231

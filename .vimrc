@@ -118,3 +118,5 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>y :NERDTreeFind<cr>
 
 nmap <silent> <leader>td :SearchTasks **/*<cr>
+
+nmap <silent> <leader>gd :GoDoc<cr>

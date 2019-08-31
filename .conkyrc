@@ -36,8 +36,9 @@ use_spacer="none",
 dofile("/home/jckimble/.cache/wal/conkyrc")
 conky.text=[[
 ${voffset 10}${color EAEAEA}${font Cantarell:pixelsize=90}${time %H:%M}${font}${voffset -54}${offset 10}${color6}${font Cantarell:pixelsize=32}${time %d} ${voffset -7}${offset -4}${color EAEAEA}${font Cantarell:pixelsize=20}${time  %B} ${time %Y}${font}${voffset 10}${font Cantarell:pixelsize=43}${offset -116}${time %A}${font}${voffset 10}
-${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color6}HD ${offset 5}$color${fs_used /} / ${fs_free /}${offset 10}${color6}RAM ${offset 5}$color$mem / $memmax${offset 10}${color6}CPU ${offset 5}$color${cpu cpu0}% ${offset 10}${color6}BATT ${offset 5}$color${battery_percent BAT1}%
+${voffset -2}${offset 5}${font Ubuntu:pixelsize=12}${color6}HD ${offset 5}$color${fs_used /} / ${fs_free /}${voffset 15}${offset -105}${fs_used /home} / ${fs_free /home}${voffset -15}${offset 10}${color6}RAM ${offset 5}$color$mem / $memmax${offset 10}${color6}CPU ${offset 5}$color${cpu cpu0}% ${offset 10}${color6}BATT ${offset 5}$color${battery_percent BAT1}%
 ${offset 377}${battery_time BAT1}
+
 
 ${if_mpd_playing}
 

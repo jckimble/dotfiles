@@ -73,3 +73,8 @@ iwrk.aes
 .m2/repository
 .config/snes9x
 .config/vlc
+.config/Brackets
+.config/containers
+.config/obs-studio
+.config/streamlink
+.config/twitchy3
