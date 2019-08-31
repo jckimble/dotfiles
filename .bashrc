@@ -24,11 +24,7 @@ which lab >/dev/null 2>&1
 [[ $? == 0 ]] && alias git=lab
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
-dockerclean(){
-docker ps --filter status=created --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
-docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
-docker volume ls -qf dangling=true | xargs -r docker volume rm
-}
+alias docker=podman
 retry(){
 $@
 if [ ! $? -eq 0 ]; then
@@ -36,14 +32,31 @@ retry $@
 fi;
 }
 sc(){
-find . -iname \*.php -exec aspell --mode=html check '{}' \;
+find . -iname \*.$1 -exec aspell --mode=html check '{}' \;
+}
+mcd(){
+	mkdir -p "$@"
+	builtin cd "$@"
 }
 cd(){
+	if [ -f './bin/activate' ];then
+		if [ "`type -t deactivate`" == "function" ];then
+		deactivate
+		fi
+	fi;
 	builtin cd "$@"
 	[ -f './.env' ] && . .env
+	if [ -f './bin/activate' ];then
+		. ./bin/activate
+		if [ -f './requirements.txt' ];then
+			pip install -qr requirements.txt
+		fi
+	fi;
 }
 funny(){
 	fortune -o | cowthink | lolcat -p 1
 }
 [ -f './.env' ] && . .env
 export EDITOR=vim
+which wal > /dev/null
+[ $? -eq 0 ] && wal -R -q

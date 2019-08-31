@@ -1,0 +1,2 @@
+#!/bin/bash
+yadm remote set-url origin "git@gitlab.com:jckimble/dotfiles.git"

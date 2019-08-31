@@ -1,7 +1,7 @@
 [user]
-	email = jckimble601@gmail.com
+	email = jckimble@pm.me
 	name = James C Kimble
-	signingkey = 59039D62BB8C934A
+	signingkey = 9ABEBE5B03954CB3
 [push]
 	default = simple
 	followTags = true
@@ -9,3 +9,5 @@
 	autosetuprebase = always
 [commit]
 	gpgsign = true
+[color]
+	ui = auto
