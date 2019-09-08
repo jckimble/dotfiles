@@ -1,7 +1,7 @@
 [user]
 	email = jckimble@pm.me
 	name = James C Kimble
-	signingkey = 9ABEBE5B03954CB3
+    signingkey = 2FA1E7C2049067E0
 [push]
 	default = simple
 	followTags = true
