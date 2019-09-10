@@ -1,0 +1,8 @@
+#!/bin/sh
+sed -e 's/#Color/Color/' -e 's/#TotalDownload/TotalDownload/' -e "/\[multilib\]/,/Include/"'s/^#//' -e 's/#.*$//' -e '/^$/d' | tee /tmp/pacman.conf
+grep jckimble /tmp/pacman.conf >/dev/null 2>&1
+if [  ! $? -eq 0 ]; then
+echo "[aur]"
+echo "Server = https://jckimble.gitlab.io/aur/"
+fi
+rm /tmp/pacman.conf

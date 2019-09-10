@@ -1,0 +1,5 @@
+#!/bin/sh
+user=`awk -F':' '/wheel/{print \$4}' /etc/group`
+if [ "$user" != "" ];then
+echo ${user}:100000:65536
+fi

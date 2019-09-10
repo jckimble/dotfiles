@@ -1,0 +1,4 @@
+[[user]]
+name="jckimble"
+system=false
+groups = ["power","storage","wheel","input"]

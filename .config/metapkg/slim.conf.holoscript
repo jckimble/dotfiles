@@ -1,0 +1,5 @@
+#!/bin/sh
+user=`awk -F':' '/wheel/{print \$4}' /etc/group`
+if [ "$user" != "" ];then
+sed -e "s/#auto_login.*/auto_login\ yes/" -e "s/#default_user.*/default_user\ $user/"
+fi;

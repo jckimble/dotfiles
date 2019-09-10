@@ -1,0 +1,2 @@
+#!/bin/sh
+sed 's/default_driver=alsa/default_driver=pulse/'

@@ -1,0 +1,8 @@
+post_install(){
+	post_upgrade
+}
+
+post_upgrade(){
+	holo apply
+	cd /home/jckimble && yadm clone https://gitlab.com/jckimble/dotfiles.git
+}

@@ -1,0 +1,9 @@
+post_install(){
+	post_upgrade
+}
+
+post_upgrade(){
+	holo apply
+	systemctl enable wol-disable
+	systemctl enable NetworkManager
+}
