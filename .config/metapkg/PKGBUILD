@@ -42,35 +42,36 @@ install=jckimble-base.install
 depends=(aur-keyring holo reflector sudo)
 install -Dm 0644 reflector.hook "${pkgdir}/usr/share/libalpm/hooks/reflector.hook"
 install -Dm 0644 wheel "${pkgdir}/etc/sudoers.d/wheel"
-install -Dm 0644 20-quiet-printk.conf "${pkgdir}/etc/sysctl.d/20-quiet-printk.conf"
-install -Dm 0644 custom.conf "${pkgdir}/etc/tmpfiles.d/custom.conf"
-install -Dm 0644 iptables.rules "${pkgdir}/usr/share/holo/files/20-laptop/etc/iptables/iptables.rules"
-install -Dm 0755 journald.conf.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/systemd/journald.conf.holoscript"
 install -Dm 0755 pacman.conf.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/pacman.conf.holoscript"
 #podman & golang
 depends+=(go lxc podman)
 install -Dm 0644 podman.conf "${pkgdir}/etc/sysctl.d/podman.conf"
-install -Dm 0644 subuid.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/subuid.holoscript"
+touch /etc/subuid
+install -Dm 0755 subuid.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/subuid.holoscript"
 install -Dm 0644 subgid "${pkgdir}/etc/subgid"
 install -Dm 0644 lxc-net "${pkgdir}/etc/default/lxc-net"
 install -Dm 0644 default.conf "${pkgdir}/usr/share/holo/files/20-laptop/etc/lxc/default.conf"
-
+depends+=(openssh)
 install -Dm 0644 ssh_config "${pkgdir}/usr/share/holo/files/20-laptop/etc/ssh/ssh_config"
 
 install -Dm 0644 70-u2f.rules "${pkgdir}/etc/udev/rules.d/70-u2f.rules"
-depends+=(dnsmasq)
-install -Dm 0644 resolvconf.conf "${pkgdir}/usr/share/holo/files/20-laptop/etc/resolvconf.conf"
-install -Dm 0644 dnsmasq.conf "${pkgdir}/etc/NetworkManager/dnsmasq.d/dnsmasq.conf"
 depends+=(gvim weechat tmux)
 }
 
 package_jckimble-laptop(){
 install=jckimble-laptop.install
-depends=(jckimble-base feh eog slim xautolock transmission-gtk scrot python-pywal xpdf gimp compton conky firefox flashplugin ranger redshift rofi termite)
+depends=(jckimble-base iptables libao pulseaudio feh eog slim xautolock transmission-gtk scrot python-pywal xpdf gimp compton conky firefox flashplugin ranger redshift rofi termite)
+install -Dm 0755 journald.conf.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/systemd/journald.conf.holoscript"
+install -Dm 0644 20-quiet-printk.conf "${pkgdir}/etc/sysctl.d/20-quiet-printk.conf"
+install -Dm 0644 custom.conf "${pkgdir}/etc/tmpfiles.d/custom.conf"
+install -Dm 0644 iptables.rules "${pkgdir}/usr/share/holo/files/20-laptop/etc/iptables/iptables.rules"
 install -Dm 0755 libao.conf.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/libao.conf.holoscript"
 install -Dm 0644 default.pa "${pkgdir}/usr/share/holo/files/20-laptop/etc/pulse/default.pa"
+depends+=(dnsmasq networkmanager openresolv)
+install -Dm 0644 resolvconf.conf "${pkgdir}/usr/share/holo/files/20-laptop/etc/resolvconf.conf"
+install -Dm 0644 dnsmasq.conf "${pkgdir}/etc/NetworkManager/dnsmasq.d/dnsmasq.conf"
 install -Dm 0644 NetworkManager.conf "${pkgdir}/usr/share/holo/files/20-laptop/etc/NetworkManager/NetworkManager.conf"
-depends+=(libinput-gestures tlp)
+depends+=(libinput-gestures tlp bluez)
 install -Dm 0755 main.conf.holoscript "${pkgdir}/usr/share/holo/files/20-laptop/etc/bluetooth/main.conf.holoscript"
 install -Dm 0644 uinput.conf "${pkgdir}/etc/modules-load.d/uinput.conf"
 install -Dm 0644 30-touchpad.conf "${pkgdir}/etc/X11/xorg.conf.d/30-touchpad.conf"

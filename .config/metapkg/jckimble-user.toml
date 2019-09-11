@@ -1,4 +1,6 @@
 [[user]]
 name="jckimble"
+home="/home/jckimble"
+sheel="/bin/bash"
 system=false
 groups = ["power","storage","wheel","input"]
