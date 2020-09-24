@@ -2,7 +2,6 @@ FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
 RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget python-pywal
-RUN wget -O /usr/local/bin/dsinit -q https://gitlab.com/jckimble/dockerssh/-/jobs/artifacts/master/raw/util/dsinit/dsinit?job=dsinit-build && chmod +x /usr/local/bin/dsinit
 
 RUN useradd -ms /bin/bash jckimble
 ADD . /home/jckimble/
@@ -19,5 +18,4 @@ ENV TERM screen-256color
 WORKDIR /home/jckimble
 RUN wal -q -i ~/.config/wallpapers/
 VOLUME ["/home/jckimble/.gnupg/S.gpg-agent","/home/jckimble/.gnupg/S.gpg-agent.ssh"]
-ENTRYPOINT ["/usr/local/bin/dsinit"]
 CMD ["/usr/bin/tmux"]
