@@ -58,5 +58,3 @@ funny(){
 }
 [ -f './.env' ] && . .env
 export EDITOR=vim
-which wal > /dev/null
-[ $? -eq 0 ] && wal -R -q

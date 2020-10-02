@@ -1,7 +1,7 @@
 FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
-RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget python-pywal which
+RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget which
 
 RUN useradd -ms /bin/bash jckimble
 ADD . /home/jckimble/
@@ -16,6 +16,5 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN wal -q -i ~/.config/wallpapers/
 VOLUME ["/home/jckimble/.gnupg/S.gpg-agent","/home/jckimble/.gnupg/S.gpg-agent.ssh"]
 CMD ["/usr/bin/tmux"]

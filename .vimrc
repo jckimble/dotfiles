@@ -19,7 +19,7 @@ Plugin 'spf13/vim-autoclose'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'hail2u/vim-css3-syntax'
 
-Plugin 'dylanaraps/wal.vim'
+Plugin 'christophermca/meta5'
 
 Plugin 'fatih/vim-go'
 Plugin 'airblade/vim-gitgutter'
@@ -69,7 +69,7 @@ set encoding=utf8
 let base16colorspace=256
 set t_Co=256
 set background=dark
-colorscheme wal
+colorscheme meta5
 
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=NONE
