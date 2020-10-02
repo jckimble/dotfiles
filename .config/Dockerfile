@@ -1,7 +1,7 @@
 FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
-RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget python-pywal
+RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget python-pywal which
 
 RUN useradd -ms /bin/bash jckimble
 ADD . /home/jckimble/
