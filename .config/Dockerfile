@@ -3,6 +3,11 @@ MAINTAINER James Kimble <jckimble@pm.me>
 
 RUN pacman -Syu --noconfirm vim git tmux go podman openssh sudo wget which
 
+ENV TINI_VERSION v0.19.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+RUN chmod +x /usr/bin/tini
+ENTRYPOINT ["/usr/bin/tini", "--"]
+
 RUN useradd -ms /bin/bash jckimble
 ADD . /home/jckimble/
 RUN echo "jckimble ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
