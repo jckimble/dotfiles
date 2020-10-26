@@ -17,6 +17,7 @@ before_script:
 build:
     stage: build
     script:
+        - docker pull archlinux/base:latest || true
         - docker pull $CONTAINER_IMAGE:latest || true
         - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF -f .config/Dockerfile .
         - docker push $CONTAINER_IMAGE:$CI_BUILD_REF

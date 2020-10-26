@@ -28,7 +28,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
 
-Plugin 'wakatime/vim-wakatime'
 if vundleInstalled == 1
 	:PluginInstall
 	:GoInstallBinaries
