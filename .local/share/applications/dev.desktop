@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=GTK;System;TerminalEmulator;
+Comment[en_US]=
+Comment=
+Exec=termite -e /home/jckimble/.config/dev.sh
+GenericName[en_US]=
+GenericName=
+Icon=utilities-terminal
+MimeType=
+Name[en_US]=DevShell
+Name=DevShell
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
