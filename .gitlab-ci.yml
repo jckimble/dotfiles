@@ -19,7 +19,7 @@ build:
     script:
         - docker pull archlinux/base:latest || true
         - docker pull $CONTAINER_IMAGE:latest || true
-        - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF -f .config/Dockerfile .
+        - docker build --cache-from $CONTAINER_IMAGE:latest --tag $CONTAINER_IMAGE:$CI_BUILD_REF --build-arg BUILD_DATE=$(date +%m-%d-%Y) --build-arg BUILD_TIME=$(date +%H:%M) -f .config/Dockerfile .
         - docker push $CONTAINER_IMAGE:$CI_BUILD_REF
 
 release:

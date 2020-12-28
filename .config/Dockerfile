@@ -1,6 +1,8 @@
 FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
+ARG BUILD_DATE=unknown
+
 RUN pacman -Syu --noconfirm base base-devel vim git tmux go podman openssh sudo wget which && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
 ENV TINI_VERSION v0.19.0
@@ -22,6 +24,7 @@ ENV TERM screen-256color
 WORKDIR /home/jckimble
 RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
+ARG BUILD_TIME=unknown
 RUN yadm clone --bootstrap https://gitlab.com/jckimble/dotfiles.git
 RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall &> /dev/null || true
 CMD ["/usr/bin/tmux"]
