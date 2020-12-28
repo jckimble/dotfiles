@@ -1,39 +1,5 @@
-let vundleInstalled=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-	silent !mkdir -p ~/.vim/bundle/
-	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-	let vundleInstalled=1
-endif
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
-
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'chriskempson/base16-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'spf13/vim-autoclose'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'hail2u/vim-css3-syntax'
-
-Plugin 'christophermca/meta5'
-
-Plugin 'fatih/vim-go'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'plasticboy/vim-markdown'
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-syntastic/syntastic'
-
-if vundleInstalled == 1
-	:PluginInstall
-	:GoInstallBinaries
-endif
-
-call vundle#end()
+source ~/.config/vimplug
 filetype plugin indent on
 
 set nobackup
