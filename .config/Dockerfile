@@ -2,6 +2,7 @@ FROM archlinux/base:latest
 MAINTAINER James Kimble <jckimble@pm.me>
 
 ARG BUILD_DATE=unknown
+ENV BUILD_DATE=$BUILD_DATE
 
 RUN pacman -Syu --noconfirm base base-devel vim git tmux go podman openssh sudo wget which && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
@@ -25,6 +26,7 @@ WORKDIR /home/jckimble
 RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
+ENV BUILD_TIME=$BUILD_TIME
 RUN yadm clone --bootstrap https://gitlab.com/jckimble/dotfiles.git
-RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall &> /dev/null || true
+RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall || true
 CMD ["/usr/bin/tmux"]

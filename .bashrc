@@ -7,6 +7,9 @@ export TERM=screen-256color
 export PASSWORD_STORE_X_SELECTION=primary
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+if [ "${BUILD_DATE}" != "unknown" -a "${BUILD_DATE}" != "" ]; then
+	echo "Container Built ${BUILD_DATE} At ${BUILD_TIME}"
+fi
 which lab >/dev/null 2>&1
 [[ $? == 0 ]] && alias git=lab
 alias ls='ls --color=auto'

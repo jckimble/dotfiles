@@ -11,4 +11,4 @@ if [ ! -f /tmp/dotfiles.${IMAGE}.updated ]; then
 		touch /tmp/dotfiles.${IMAGE}.updated
 	fi;
 fi
-$CMD run --rm -it -v /home/jckimble/go/src:/home/jckimble/go/src -v /var/run/user/1000/gnupg:/var/run/user/1000/gnupg registry.gitlab.com/jckimble/dotfiles:${IMAGE}
+$CMD run --rm -it -v /home/jckimble/go/src:/home/jckimble/go/src registry.gitlab.com/jckimble/dotfiles:${IMAGE}
