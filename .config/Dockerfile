@@ -20,9 +20,8 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
+RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 RUN yadm clone --bootstrap https://gitlab.com/jckimble/dotfiles.git
-RUN vim -E +qall
-VOLUME ["/home/jckimble/.gnupg/S.gpg-agent","/home/jckimble/.gnupg/S.gpg-agent.ssh"]
+RUN vim -E -S ~/.vimrc +qall
 CMD ["/usr/bin/tmux"]
