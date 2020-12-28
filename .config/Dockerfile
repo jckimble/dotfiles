@@ -23,5 +23,5 @@ WORKDIR /home/jckimble
 RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 RUN yadm clone --bootstrap https://gitlab.com/jckimble/dotfiles.git
-RUN vim -E -S ~/.config/vimplug +qall > /dev/null || true
+RUN vim -E -S ~/.config/vimplug +PlugInstall +qall && vim -E -S ~/.config/vimplug +GoInstallBinaries +qall
 CMD ["/usr/bin/tmux"]

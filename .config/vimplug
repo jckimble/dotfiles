@@ -1,35 +1,36 @@
-let vundleInstalled=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-	silent !mkdir -p ~/.vim/bundle/
-	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-	let vundleInstalled=1
+let plugInstalled=0
+let plug_readme=expand('~/.vim/bundle/vim-plug/README.md')
+if !filereadable(plug_readme)
+	silent !mkdir -p ~/.vim/bundle/ ~/.vim/autoload
+	silent !git clone https://github.com/junegunn/vim-plug ~/.vim/bundle/vim-plug
+	silent !ln -sf ~/.vim/bundle/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+	let plugInstalled=1
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+set rtp+=~/.vim/bundle/vim-plug/
+call plug#begin('~/.vim/bundle')
 
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'chriskempson/base16-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'spf13/vim-autoclose'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'hail2u/vim-css3-syntax'
+Plug 'junegunn/vim-plug'
+Plug 'scrooloose/nerdtree'
+Plug 'benmills/vimux'
+Plug 'chriskempson/base16-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'spf13/vim-autoclose'
+Plug 'myusuf3/numbers.vim'
+Plug 'hail2u/vim-css3-syntax'
 
-Plugin 'christophermca/meta5'
+Plug 'christophermca/meta5'
 
-Plugin 'fatih/vim-go'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'plasticboy/vim-markdown'
+Plug 'fatih/vim-go'
+Plug 'airblade/vim-gitgutter'
+Plug 'plasticboy/vim-markdown'
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-syntastic/syntastic'
 
-if vundleInstalled == 1
-	:PluginInstall
-	:GoInstallBinaries
-endif
+"if plugInstalled == 1
+"	:PlugInstall
+"	:GoInstallBinaries
+"endif
 
-call vundle#end()
+call plug#end()
