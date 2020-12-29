@@ -4,6 +4,7 @@ if command -v podman &> /dev/null
 then
 	CMD=podman
 fi
+echo "Using ${CMD} to start DevShell"
 IMAGE=${1:-latest}
 if [ ! -f /tmp/dotfiles.${IMAGE}.updated ]; then
 	$CMD pull registry.gitlab.com/jckimble/dotfiles:${IMAGE}

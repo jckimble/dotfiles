@@ -28,5 +28,5 @@ RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm kr
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
 RUN yadm clone --bootstrap https://gitlab.com/jckimble/dotfiles.git
-RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall || true
+RUN vim -T dumb -n -i NONE -V -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall || true
 CMD ["/usr/bin/tmux"]
