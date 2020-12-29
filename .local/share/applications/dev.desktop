@@ -2,7 +2,7 @@
 Categories=GTK;System;TerminalEmulator;
 Comment[en_US]=
 Comment=
-Exec=termite -e /home/jckimble/.config/dev.sh
+Exec=termite -e /home/jckimble/.config/devshell.py
 GenericName[en_US]=
 GenericName=
 Icon=utilities-terminal
