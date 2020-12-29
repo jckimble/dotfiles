@@ -1,3 +1,4 @@
+set nocompatible
 let vundleInstalled=0
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
