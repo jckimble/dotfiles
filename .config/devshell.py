@@ -55,9 +55,11 @@ for line in proc.stdout:
             volumeName="dotfiles{0}".format(volume.replace("/","-"))
             errCode=subprocess.call([cmd,"volume","inspect",volumeName],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
             if errCode != 0:
+                print("Creating volume for {}".format(volume))
                 subprocess.call([cmd,"volume","create",volumeName],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
             startCommand.append("-v")
             startCommand.append("{0}:{1}".format(volumeName,volume))
         buffer = ""
 startCommand.append(containerImage)
+print("Starting container")
 subprocess.call(startCommand)
