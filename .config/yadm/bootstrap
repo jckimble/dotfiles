@@ -1,3 +1,4 @@
 #!/bin/bash
-yadm remote set-url gitlab "git@gitlab.com:jckimble/dotfiles.git"
-yadm remote set-url github "git@github.com:jckimble/dotfiles.git"
+yadm remote rm origin
+yadm remote add gitlab "git@gitlab.com:jckimble/dotfiles.git"
+yadm remote add github "git@github.com:jckimble/dotfiles.git"
