@@ -11,6 +11,7 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree'
+Plugin 'maralla/completor.vim'
 Plugin 'benmills/vimux'
 Plugin 'chriskempson/base16-vim'
 Plugin 'pangloss/vim-javascript'
@@ -25,7 +26,6 @@ Plugin 'fatih/vim-go'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'plasticboy/vim-markdown'
 
-Plugin 'tpope/vim-fugitive'
 Plugin 'vim-syntastic/syntastic'
 
 if vundleInstalled == 1

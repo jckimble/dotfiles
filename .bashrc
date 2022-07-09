@@ -10,8 +10,6 @@ export PASSWORD_STORE_X_SELECTION=primary
 if [ "${BUILD_DATE}" != "unknown" -a "${BUILD_DATE}" != "" ]; then
 	echo "Container Built ${BUILD_DATE} At ${BUILD_TIME}"
 fi
-which lab >/dev/null 2>&1
-[[ $? == 0 ]] && alias git=lab
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 alias docker=podman

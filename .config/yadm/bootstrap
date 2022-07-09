@@ -1,4 +1,3 @@
 #!/bin/bash
 yadm remote rm origin
-yadm remote add gitlab "git@gitlab.com:jckimble/dotfiles.git"
-yadm remote add github "git@github.com:jckimble/dotfiles.git"
+yadm remote add origin "git@github.com:jckimble/dotfiles.git"

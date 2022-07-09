@@ -36,6 +36,9 @@ set t_Co=256
 set background=dark
 colorscheme meta5
 
+let g:completor_filetype_map = {}
+let g:completor_filetype_map.go = {'ft': 'lsp', 'cmd': 'gopls -remote=auto'}
+
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=NONE
 function! BgToggle()
