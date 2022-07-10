@@ -23,7 +23,7 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN go install github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
+RUN go install github.com/Jguer/yay@latest && /home/jckimble/go/bin/yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
