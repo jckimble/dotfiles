@@ -4,7 +4,7 @@ MAINTAINER James Kimble <jckimble@pm.me>
 ARG BUILD_DATE=unknown
 ENV BUILD_DATE=$BUILD_DATE
 
-RUN pacman -Syu --noconfirm base base-devel vim git tmux openssh sudo wget which && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
+RUN pacman -Syu --noconfirm --needed base base-devel vim git tmux openssh sudo wget which && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
 ENV TINI_VERSION v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
@@ -23,11 +23,11 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN pacman -Sy --noconfirm && git clone https://aur.archlinux.org/yay.git \
+RUN sudo pacman -Sy --noconfirm && git clone https://aur.archlinux.org/yay.git \
   && cd yay \
   && makepkg -sri --needed --noconfirm \
   && cd .. \
-  && yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
+  && yay -Syu --noconfirm --needed ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
