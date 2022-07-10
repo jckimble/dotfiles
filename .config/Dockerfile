@@ -27,7 +27,7 @@ RUN sudo pacman -Sy --noconfirm && git clone https://aur.archlinux.org/yay.git \
   && cd yay \
   && makepkg -sri --needed --noconfirm \
   && cd .. \
-  && yay -Syu --noconfirm --needed ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
+  && yay -Syu --noconfirm --needed ngrok kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
