@@ -23,12 +23,11 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN go get github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
+RUN go install github.com/Jguer/yay && /home/jckimble/go/bin/yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
-ARG GITHOST=gitlab.com
-RUN yadm clone --bootstrap https://$GITHOST/jckimble/dotfiles.git
+RUN yadm clone --bootstrap https://github.com/jckimble/dotfiles.git
 RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +GoInstallBinaries +qall
 VOLUME ["/home/jckimble/go/src"]
 CMD ["/usr/bin/tmux"]
