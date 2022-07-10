@@ -1,4 +1,4 @@
-FROM archlinux/base:latest
+FROM archlinux:base
 MAINTAINER James Kimble <jckimble@pm.me>
 
 ARG BUILD_DATE=unknown
