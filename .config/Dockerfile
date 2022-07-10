@@ -23,9 +23,10 @@ ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV TERM screen-256color
 WORKDIR /home/jckimble
-RUN git clone https://aur.archlinux.org/yay.git \
+RUN pacman -Sy --noconfirm && git clone https://aur.archlinux.org/yay.git \
   && cd yay \
   && makepkg -sri --needed --noconfirm \
+  && cd .. \
   && yay -Syu --noconfirm ngrok-bin kr-bin yadm yay && sudo rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/* && find . ! -path . ! -path .. -prune -exec sudo rm -rf -- {} +
 
 ARG BUILD_TIME=unknown
