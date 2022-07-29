@@ -1,9 +1,0 @@
-[Desktop Entry]
-Categories=Development;IDE;System;
-Exec=/home/jckimble/.config/devshell.py
-Icon=utilities-terminal
-Name=DevShell
-StartupNotify=true
-Terminal=true
-Type=Application
-X-KDE-SubstituteUID=false
