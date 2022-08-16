@@ -5,6 +5,7 @@
 [push]
 	default = simple
 	followTags = true
+	autoSetupRemote = true
 [branch]
 	autosetuprebase = always
 [commit]
@@ -15,3 +16,5 @@
 	program = /usr/bin/krgpg
 [tag]
 	forceSignAnnotated = true
+[init]
+	defaultBranch = master
