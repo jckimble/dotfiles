@@ -37,3 +37,7 @@ export EDITOR=vim
 if [ "${BUILD_DATE}" != "unknown" ] && [ "${BUILD_DATE}" != "" ]; then
 	echo "Container Built ${BUILD_DATE} At ${BUILD_TIME}"
 fi
+
+case $- in *i*)
+  if [ -z "$TMUX" ]; then exec tmux; fi;;
+esac
