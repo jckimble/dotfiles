@@ -8,7 +8,7 @@ RUN pacman -Sy --noconfirm --noprogressbar --needed python-pip \
   && pip install pacrepo-cli \
   && pacrepo-cli add --siglevel "Never DatabaseNever" jckimble https://github.com/jckimble/pkgbuilds/releases/download/repository \
   && pip uninstall pacrepo-cli -y \
-  && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget which ngrok kr-bin yay jckimble-keyring \
+  && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget which ngrok kr-bin yay jckimble-keyring npm \
   && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
 ENV TINI_VERSION v0.19.0
