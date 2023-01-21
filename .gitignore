@@ -2,3 +2,9 @@
 *
 !.*
 !.*/**
+.cache
+.config/Code/User/History
+**/logs/*
+**/*Cache*/*
+**/*cache*/*
+.dotfiles
