@@ -1,19 +1,14 @@
 [user]
 	email = me@jckimble.com
 	name = James C Kimble
-	signingkey = 9A69DFA98B7A0E6E
 [push]
 	default = simple
 	followTags = true
 	autoSetupRemote = true
 [branch]
 	autosetuprebase = always
-[commit]
-	gpgSign = true
 [color]
 	ui = auto
-[gpg]
-	program = /usr/bin/krgpg
 [tag]
 	forceSignAnnotated = true
 [init]
