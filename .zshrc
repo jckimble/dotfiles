@@ -38,6 +38,14 @@ function funny(){
 export TERM=screen-256color
 export EDITOR=vim
 
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -f "$HOME/.env" ]; then
+	. $HOME/.env
+fi
+
 if [ "${BUILD_DATE}" != "unknown" ] && [ "${BUILD_DATE}" != "" ]; then
 	echo "Container Built ${BUILD_DATE} At ${BUILD_TIME}"
 fi
