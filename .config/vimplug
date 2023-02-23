@@ -1,23 +1,20 @@
 set nocompatible
-let vundleInstalled=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-	silent !mkdir -p ~/.vim/bundle/
-	silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-	let vundleInstalled=1
+let plugInstalled=0
+let plug_installed=expand('~/.vim/autoload/plug.vim')
+if !filereadable(plug_installed)
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let plugInstalled=1
 endif
-set rtp+=~/.vim/bundle/vundle/
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/vundle'
-Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'spf13/vim-autoclose'
-Plugin 'myusuf3/numbers.vim'
-Plugin 'christophermca/meta5'
+Plug 'scrooloose/nerdtree'
+Plug 'benmills/vimux'
+Plug 'spf13/vim-autoclose'
+Plug 'myusuf3/numbers.vim'
+Plug 'christophermca/meta5'
 
-if vundleInstalled == 1
-	:PluginInstall
+if plugInstalled == 1
+	:PlugInstall
 endif
 
-call vundle#end()
+call plug#end()

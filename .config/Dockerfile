@@ -8,7 +8,7 @@ RUN pacman -Sy --noconfirm --noprogressbar --needed python-pip \
   && pip install pacrepo-cli \
   && pacrepo-cli add --siglevel "Never DatabaseNever" jckimble https://github.com/jckimble/pkgbuilds/releases/download/repository \
   && pip uninstall pacrepo-cli -y \
-  && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget which ngrok kr-bin yay jckimble-keyring npm \
+  && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget curl which ngrok kr-bin yay jckimble-keyring npm \
   && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
 ENV TINI_VERSION v0.19.0
@@ -32,6 +32,6 @@ WORKDIR /home/jckimble
 
 ARG BUILD_TIME=unknown
 ENV BUILD_TIME=$BUILD_TIME
-RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PluginInstall +qall
+RUN vim -T dumb -n -i NONE -E -S ~/.config/vimplug +PlugInstall +qall
 VOLUME ["/home/jckimble/workspace"]
 CMD ["/usr/bin/tmux"]
