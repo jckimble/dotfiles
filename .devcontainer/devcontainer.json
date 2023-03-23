@@ -1,0 +1,26 @@
+{
+  "name": "dotfiles",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "containerEnv": {
+    "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+    "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+    "WAKATIME_API_KEY": "${localEnv:WAKATIME_API_KEY}",
+    "NGROK_TOKEN": "${localEnv:NGROK_TOKEN}",
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
+  "remoteEnv": {
+    "AWS_ACCESS_KEY_ID": "${localEnv:AWS_ACCESS_KEY_ID}",
+    "AWS_SECRET_ACCESS_KEY": "${localEnv:AWS_SECRET_ACCESS_KEY}",
+    "WAKATIME_API_KEY": "${localEnv:WAKATIME_API_KEY}",
+    "NGROK_TOKEN": "${localEnv:NGROK_TOKEN}",
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "tmux"
+  },
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/tmux-apt-get:1": {},
+    "ghcr.io/guiyomh/features/vim:0": {},
+    "ghcr.io/jckimble/devcontainer-features/ngrok:latest": {}
+  }
+}
