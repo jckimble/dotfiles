@@ -1,3 +1,9 @@
 #!/bin/bash
-yadm remote rm origin
-yadm remote add origin "git@github.com:jckimble/dotfiles.git"
+
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:jckimble/dotfiles.git"
+
+if command -v vim >/dev/null 2>&1; then
+  echo "Bootstraping Vim"
+  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+fi

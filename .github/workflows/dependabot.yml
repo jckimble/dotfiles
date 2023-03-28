@@ -1,0 +1,15 @@
+name: Dependabot
+
+on:
+  pull_request:
+
+jobs:
+  dependabot-auto-merge:
+    name: Dependabot Auto-Merge
+    if: ${{ github.event_name == 'pull_request' && github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v3

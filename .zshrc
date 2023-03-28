@@ -21,8 +21,6 @@ setopt CORRECT
 
 alias ls='ls --color=auto'
 
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
 function retry(){
 	if ! "$@"; then
 		sleep 1

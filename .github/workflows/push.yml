@@ -5,8 +5,55 @@ on:
       - master
 
 jobs:
-  build:
-    name: Build
+  lint:
+    name: Lint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Commitlint
+        uses: ahmadnassri/action-commit-lint@v1
+      - name: Dockerfile Lint
+        uses: luke142367/Docker-Lint-Action@v1.0.0
+        with:
+          target: .config/Dockerfile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Yaml Lint
+        uses: ibiqlik/action-yamllint@v3
+      - name: Run ShellCheck
+        uses: azohra/shell-linter@latest
+        with:
+          path: ".zshrc,**/*.sh,.config/yadm/bootstrap"
+
+  test-yadm:
+    name: Test Yadm
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - run: sudo apt-get install yadm
+      - run: yadm clone https://github.com/jckimble/dotfiles
+      - run: yadm checkout ${{ github.head_ref }}
+      - run: yadm bootstrap
+  
+  test-devcontainer:
+    name: Test Devcontainer
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install -g npx @devcontainers/cli@latest
+      - run: npx devcontainer up --remove-existing-container --dotfiles-repository jckimble/dotfiles --workspace-folder .
+      - run: npx devcontainer exec --workspace-folder . vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+
+  build-docker:
+    name: Build Docker Image
+    needs:
+      - lint
+      - test-yadm
+      - test-devcontainer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
