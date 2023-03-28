@@ -26,6 +26,7 @@ jobs:
       - run: sudo apt-get install yadm
       - run: yadm clone https://github.com/jckimble/dotfiles
       - run: yadm checkout ${{ github.head_ref }}
+        if: github.head_ref
       - run: yadm bootstrap
   
   test-devcontainer:
@@ -39,7 +40,9 @@ jobs:
           node-version: 16
       - run: npm install -g @devcontainers/cli@latest
       - run: npx devcontainer up --remove-existing-container --dotfiles-repository jckimble/dotfiles --workspace-folder .
-      - run: npx devcontainer exec --workspace-folder . cd ~/dotfiles && git checkout ${{ github.head_ref }} && vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+      - run: npx devcontainer exec --workspace-folder . cd ~/dotfiles && git checkout ${{ github.head_ref }}
+        if: github.head_ref
+      - run: npx devcontainer exec --workspace-folder . vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 
   build-docker:
     name: Build Docker Image
