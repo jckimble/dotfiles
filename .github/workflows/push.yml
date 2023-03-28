@@ -25,7 +25,7 @@ jobs:
       - run: sudo apt-get install yadm
       - run: yadm clone https://github.com/jckimble/dotfiles
       - run: yadm checkout ${{ github.head_ref }}
-      - run: chmod +x dotfiles/.config/yadm/bootstrap
+      - run: chmod +x .config/yadm/bootstrap
       - run: yadm bootstrap
   
   test-devcontainer:
