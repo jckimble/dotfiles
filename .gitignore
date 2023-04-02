@@ -7,4 +7,8 @@
 **/logs/*
 **/*Cache*/*
 **/*cache*/*
-.dotfiles
+**/*Trash*/*
+**/*trash*/*
+.local
+.npm
+.env
