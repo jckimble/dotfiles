@@ -1,5 +1,11 @@
 filetype off
-source ./.config/vimplug
+if filereadable(expand('~/.config/vimplug'))
+    source ~/.config/vimplug
+endif
+if filereadable(expand('~/dotfiles/.config/vimplug'))
+    source ~/dotfiles/.config/vimplug
+endif
+
 filetype plugin indent on
 
 set nobackup
