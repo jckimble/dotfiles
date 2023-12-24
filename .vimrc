@@ -1,5 +1,5 @@
 filetype off
-source ~/.config/vimplug
+source ./.config/vimplug
 filetype plugin indent on
 
 set nobackup
