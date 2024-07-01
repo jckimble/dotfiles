@@ -61,7 +61,7 @@ jobs:
           echo "BUILD_DATE=$(date +%m-%d-%Y)" >> $GITHUB_ENV
           echo "BUILD_TIME=$(date +%H:%M)" >> $GITHUB_ENV
       - name: Build and Push
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: .config/Dockerfile
