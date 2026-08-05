@@ -1,0 +1,6 @@
+[Unit]
+Description=Clean old git repositories
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/git-clean

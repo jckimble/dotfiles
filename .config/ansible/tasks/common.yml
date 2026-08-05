@@ -1,0 +1,106 @@
+---
+- name: Install common packages
+  become: true
+  ansible.builtin.apt:
+    name:
+      - git
+      - zsh
+      - tmux
+      - vim
+      - curl
+      - wget
+      - yadm
+      - unattended-upgrades
+      - apt-listchanges
+    state: present
+    update_cache: true
+- name: Install GitHub CLI
+  ansible.builtin.include_tasks: package.yml
+  vars:
+    repo_name: github-cli
+    repo_key_url: https://cli.github.com/packages/githubcli-archive-keyring.asc
+    repo_key_name: githubcli.asc
+    repo_arch: amd64,arm64
+    repo_url: https://cli.github.com/packages
+    repo_distribution: stable
+    repo_component: main
+    packages:
+      - gh
+- name: Configure VS Code
+  ansible.builtin.include_tasks: package.yml
+  vars:
+    repo_name: vscode
+    repo_key_url: https://packages.microsoft.com/keys/microsoft.asc
+    repo_key_name: "microsoft.asc"
+    repo_arch: "amd64,arm64,armhf"
+    repo_url: "https://packages.microsoft.com/repos/code"
+    repo_distribution: "stable"
+    repo_component: "main"
+    packages:
+      - code
+- name: Configure Docker
+  ansible.builtin.include_tasks: package.yml
+  vars:
+    repo_name: docker
+    repo_key_url: https://download.docker.com/linux/debian/gpg
+    repo_key_name: "docker.asc"
+    repo_arch: "amd64,arm64"
+    repo_url: "https://download.docker.com/linux/debian"
+    repo_distribution: "bookworm"
+    repo_component: "stable"
+    packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+- name: Add current user to docker group
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: true
+- name: Reload user systemd
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+    scope: user
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_user_uid }}"
+    DBUS_SESSION_BUS_ADDRESS: "unix:path=/run/user/{{ ansible_user_uid }}/bus"
+- name: Enable timers
+  ansible.builtin.systemd_service:
+    scope: user
+    enabled: true
+    state: started
+    name: "{{ item }}"
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_user_uid }}"
+    DBUS_SESSION_BUS_ADDRESS: "unix:path=/run/user/{{ ansible_user_uid }}/bus"
+  loop:
+    - yadm-sync.timer
+    - git-clean.timer
+    - docker-clean.timer
+- name: Configure apt periodic updates
+  become: true
+  ansible.builtin.template:
+    src: ../templates/20auto-upgrades.j2
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    mode: "0644"
+- name: Configure unattended upgrades
+  become: true
+  ansible.builtin.template:
+    src: ../templates/52unattended-upgrades.j2
+    dest: /etc/apt/apt.conf.d/52unattended-upgrades
+    mode: "0644"
+- name: Enable apt timers
+  become: true
+  ansible.builtin.systemd_service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  environment:
+    XDG_RUNTIME_DIR: "/run/user/{{ ansible_user_uid }}"
+    DBUS_SESSION_BUS_ADDRESS: "unix:path=/run/user/{{ ansible_user_uid }}/bus"
+  loop:
+    - apt-daily.timer
+    - apt-daily-upgrade.timer

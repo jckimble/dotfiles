@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
 
-echo "Updating the yadm repo origin URL"
-yadm remote set-url origin "git@github.com:jckimble/dotfiles.git"
+ansible-playbook ~/.config/ansible/site.yml
 
 if command -v vim >/dev/null 2>&1; then
   echo "Bootstraping Vim"

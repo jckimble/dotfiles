@@ -1,0 +1,6 @@
+[Unit]
+Description=Aggressive Docker cleanup
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/docker-clean

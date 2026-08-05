@@ -1,0 +1,13 @@
+---
+- name: Configure workstation
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Load common tasks
+      ansible.builtin.import_tasks: tasks/common.yml
+    - name: Load avf tasks
+      ansible.builtin.import_tasks: tasks/avf.yml
+      when:
+        - "'android' in ansible_kernel | lower"
+        - ansible_env.USER == "droid"

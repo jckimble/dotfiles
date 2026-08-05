@@ -1,0 +1,33 @@
+---
+- name: Create apt keyrings directory
+  become: true
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: "0755"
+
+- name: Add repository signing key
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ repo_key_url }}"
+    dest: "/etc/apt/keyrings/{{ repo_key_name }}"
+    mode: "0644"
+
+- name: Add apt repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb [arch={{ repo_arch }} 
+      signed-by=/etc/apt/keyrings/{{ repo_key_name }}]
+      {{ repo_url }}
+      {{ repo_distribution }}
+      {{ repo_component }}
+    filename: "{{ repo_name }}"
+    state: present
+
+- name: Install packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: true

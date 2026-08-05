@@ -1,0 +1,6 @@
+[Unit]
+Description=Update yadm repository
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/yadm pull --rebase

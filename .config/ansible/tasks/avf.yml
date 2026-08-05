@@ -1,0 +1,36 @@
+---
+- name: Install XFCE
+  become: true
+  ansible.builtin.apt:
+    name:
+      - xfce4
+      - xfce4-terminal
+      - dbus-x11
+      - x11-xserver-utils
+    state: present
+- name: Install Google Chrome
+  ansible.builtin.include_tasks: package.yml
+  vars:
+    repo_name: google-chrome
+    repo_key_url: https://dl.google.com/linux/linux_signing_key.pub
+    repo_key_name: google.asc
+    repo_arch: amd64,arm64
+    repo_url: https://dl.google.com/linux/chrome/deb
+    repo_distribution: stable
+    repo_component: main
+    packages:
+      - google-chrome-stable
+- name: Reload systemd user daemon
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+    scope: user
+- name: Enable XFCE
+  ansible.builtin.systemd_service:
+    name: xfce.service
+    enabled: true
+    scope: user
+- name: Start XFCE
+  ansible.builtin.systemd_service:
+    name: xfce.service
+    state: started
+    scope: user

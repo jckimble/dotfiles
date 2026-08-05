@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+find "$HOME" -mindepth 1 -maxdepth 1 -type d | while read repo
+do
+	[[ "$(basename \"$repo\")" == .* ]] && continue
+
+	[[ -d "$repo/.git" ]] || continue
+
+	[[ -f "$repo/.keep" ]] && continue
+
+	[[ -z "$(git -C \"$repo\" status --porcelain)" ]] || continue
+
+	if [[ -z $(find "$repo" -mtime -7) ]]; then
+		rm -rf "$repo"
+	fi
+done
