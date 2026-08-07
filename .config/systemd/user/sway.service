@@ -6,7 +6,8 @@ Wants=graphical-session-pre.target
 [Service]
 Type=simple
 Environment=XDG_CURRENT_DESKTOP=sway
-Environment=WLR_NO_HARDWAR_CURSORS=1
+Environment=WLR_NO_HARDWARE_CURSORS=1
+Environment=XDG_SESSION_TYPE=wayland
 ExecStart=/usr/bin/sway --unsupported-gpu
 Restart=on-failure
 
