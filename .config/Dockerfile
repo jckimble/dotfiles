@@ -5,12 +5,12 @@ ENV BUILD_DATE=$BUILD_DATE
 
 RUN pacman -Sy --noconfirm --noprogressbar --needed python-pipx \
   && pipx install pacrepo-cli \
-  && pacrepo-cli add --siglevel "Never DatabaseNever" jckimble https://github.com/jckimble/pkgbuilds/releases/download/repository \
+  && ~/.local/bin/pacrepo-cli add --siglevel "Never DatabaseNever" jckimble https://github.com/jckimble/pkgbuilds/releases/download/repository \
   && pipx uninstall pacrepo-cli \
   && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget curl which ngrok kr-bin yay jckimble-keyring npm \
   && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
-ENV TINI_VERSION v0.19.0
+ENV TINI_VERSION=v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
 RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]

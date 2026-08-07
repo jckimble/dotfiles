@@ -1,0 +1,13 @@
+# Main Behaviour Settings
+show=drun
+prompt=Apps: 
+allow_images=true
+image_size=24
+term=foot
+
+# Floating Geometry Constraints
+width=400
+height=450
+orientation=vertical
+halign=fill
+content_halign=fill
