@@ -13,9 +13,8 @@
   become: true
   ansible.builtin.apt:
     name:
-      - fuzzel
       - foot
-      - nwg-dock-hyprland
+      - tint2
     state: present
 
 - name: Install Google Chrome

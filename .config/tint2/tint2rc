@@ -1,0 +1,25 @@
+# tint2 Centered Dock Configuration
+panel_items = L
+panel_position = bottom center horizontal
+panel_layer = top
+panel_margin = 0 10
+panel_padding = 6 6 6
+panel_background_id = 1
+
+# Centered Launcher Settings
+launcher_padding = 8 4 4
+launcher_background_id = 0
+launcher_icon_size = 48
+
+# Pin your three applications directly by their system paths
+launcher_item_app = /usr/share/applications/foot.desktop
+launcher_item_app = /usr/share/applications/google-chrome.desktop
+launcher_item_app = /usr/share/applications/code.desktop
+
+# Basic clean dark styling block
+background_backend = id
+background_id = 1
+bg_color = #141414 80
+bg_rounded = 12
+border_width = 1
+border_color = #ffffff 10
