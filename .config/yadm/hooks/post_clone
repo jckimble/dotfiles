@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# AVF weston.ini rewrite
+yadm checkout --force --quiet "$HOME/.config/weston.ini"
