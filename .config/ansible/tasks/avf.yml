@@ -1,4 +1,16 @@
 ---
+- name: Add current user to video group
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: video
+    append: true
+- name: Add current user to input group
+  become: true
+  ansible.builtin.user:
+    name: "{{ ansible_user_id }}"
+    groups: input
+    append: true
 - name: Install Sway
   become: true
   ansible.builtin.apt:
@@ -8,7 +20,17 @@
       - foot
       - wofi
       - xwayland
+      - seatd
     state: present
+- name: Enable seatd
+  ansible.builtin.systemd_service:
+    name: seatd.service
+    enabled: true
+- name: Start seatd
+  ansible.builtin.systemd_service:
+    name: seatd.service
+    state: started
+
 - name: Install Google Chrome
   ansible.builtin.include_tasks: package.yml
   vars:
