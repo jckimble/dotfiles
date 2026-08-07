@@ -1,13 +1,12 @@
 FROM archlinux:base
-MAINTAINER James C Kimble <me@jckimble.com>
 
 ARG BUILD_DATE=unknown
 ENV BUILD_DATE=$BUILD_DATE
 
-RUN pacman -Sy --noconfirm --noprogressbar --needed python-pip \
-  && pip install pacrepo-cli \
+RUN pacman -Sy --noconfirm --noprogressbar --needed python-pipx \
+  && pipx install pacrepo-cli \
   && pacrepo-cli add --siglevel "Never DatabaseNever" jckimble https://github.com/jckimble/pkgbuilds/releases/download/repository \
-  && pip uninstall pacrepo-cli -y \
+  && pipx uninstall pacrepo-cli \
   && pacman -Syu --noconfirm --noprogressbar --needed --ignore linux --ignore linux-firmware base base-devel vim git zsh tmux openssh sudo wget curl which ngrok kr-bin yay jckimble-keyring npm \
   && rm -rf /var/cache/pacman/pkg/* /var/lib/pacman/sync/*
 
@@ -23,11 +22,11 @@ RUN ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 COPY . /home/jckimble
 RUN chown -R jckimble:users /home/jckimble
 USER jckimble
-ENV USER jckimble
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV TERM screen-256color
+ENV USER=jckimble
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV TERM=screen-256color
 WORKDIR /home/jckimble
 
 ARG BUILD_TIME=unknown
