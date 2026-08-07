@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ansible-playbook ~/.config/ansible/site.yml

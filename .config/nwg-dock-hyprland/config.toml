@@ -1,0 +1,17 @@
+# Main settings block
+position = "bottom"
+icon-size = 48
+margin-bottom = 10
+launcher = "fuzzel"
+resident = true
+
+# Style definitions
+alignment = "center"
+exclusive = false
+layer = "top"
+
+pinned = [
+    "foot",
+    "google-chrome",
+    "code"
+]

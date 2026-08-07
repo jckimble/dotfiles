@@ -36,6 +36,11 @@ function funny(){
 export TERM=screen-256color
 export EDITOR=vim
 
+# Force Chrome and VS Code to drop internal VM sandboxes globally
+export CHROMIUM_FLAGS="--no-sandbox --ozone-platform=wayland --enable-features=WebUIDarkMode --force-dark-mode"
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+
 if [ -d "$HOME/.local/bin" ]; then
 	PATH="$HOME/.local/bin:$PATH"
 fi

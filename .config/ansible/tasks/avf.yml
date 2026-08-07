@@ -9,11 +9,13 @@
     append: true
     shell: /usr/bin/zsh
     
-- name: Install foot terminal emulator
+- name: Install AVF Packages
   become: true
   ansible.builtin.apt:
     name:
+      - fuzzel
       - foot
+      - nwg-dock-hyprland
     state: present
 
 - name: Install Google Chrome
