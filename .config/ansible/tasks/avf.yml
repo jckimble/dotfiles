@@ -1,35 +1,20 @@
 ---
-- name: Add current user to video group
+- name: Configure AVF User
   become: true
   ansible.builtin.user:
     name: "{{ ansible_user_id }}"
-    groups: video
+    groups:
+      - video
+      - input
     append: true
-- name: Add current user to input group
-  become: true
-  ansible.builtin.user:
-    name: "{{ ansible_user_id }}"
-    groups: input
-    append: true
-- name: Install Sway
+    shell: /usr/bin/zsh
+    
+- name: Install foot terminal emulator
   become: true
   ansible.builtin.apt:
     name:
-      - weston
-      - sway
       - foot
-      - wofi
-      - xwayland
-      - seatd
     state: present
-- name: Enable seatd
-  ansible.builtin.systemd_service:
-    name: seatd.service
-    enabled: true
-- name: Start seatd
-  ansible.builtin.systemd_service:
-    name: seatd.service
-    state: started
 
 - name: Install Google Chrome
   ansible.builtin.include_tasks: package.yml
@@ -43,17 +28,3 @@
     repo_component: main
     packages:
       - google-chrome-stable
-- name: Reload systemd user daemon
-  ansible.builtin.systemd_service:
-    daemon_reload: true
-    scope: user
-- name: Enable Sway
-  ansible.builtin.systemd_service:
-    name: sway.service
-    enabled: true
-    scope: user
-- name: Start Sway
-  ansible.builtin.systemd_service:
-    name: sway.service
-    state: started
-    scope: user
