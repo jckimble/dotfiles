@@ -1,12 +1,13 @@
 ---
-- name: Install XFCE
+- name: Install Sway
   become: true
   ansible.builtin.apt:
     name:
-      - xfce4
-      - xfce4-terminal
-      - dbus-x11
-      - x11-xserver-utils
+      - weston
+      - sway
+      - foot
+      - wofi
+      - xwayland
     state: present
 - name: Install Google Chrome
   ansible.builtin.include_tasks: package.yml
@@ -24,13 +25,13 @@
   ansible.builtin.systemd_service:
     daemon_reload: true
     scope: user
-- name: Enable XFCE
+- name: Enable Sway
   ansible.builtin.systemd_service:
-    name: xfce.service
+    name: sway.service
     enabled: true
     scope: user
-- name: Start XFCE
+- name: Start Sway
   ansible.builtin.systemd_service:
-    name: xfce.service
+    name: sway.service
     state: started
     scope: user

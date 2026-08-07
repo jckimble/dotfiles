@@ -1,0 +1,13 @@
+set $mod Mod1
+
+floating_modifier $mod
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+d exec wofi --show drun
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+b exec google-chrome
+bindsym $mod+c exec code
+bindsym $mod+Return exec foot
