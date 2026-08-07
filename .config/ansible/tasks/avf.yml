@@ -14,7 +14,7 @@
   ansible.builtin.apt:
     name:
       - foot
-      - tint2
+      - fuzzel
     state: present
 
 - name: Install Google Chrome
