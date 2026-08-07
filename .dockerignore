@@ -6,3 +6,5 @@
 .vim
 .viminfo
 .zcompdump
+
+ansible

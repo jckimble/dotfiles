@@ -1,13 +1,13 @@
 [Unit]
 Description=Sway Tiling Window Manager
-After=default.target
+After=graphical-session-pre.target
+Wants=graphical-session-pre.target
 
 [Service]
 Type=simple
-Environment=XDG_RUNTIME_DIR=/run/user/1000
-Environment=WAYLAND_DISPLAY=wayland-0
 Environment=XDG_CURRENT_DESKTOP=sway
-ExecStart=/usr/bin/sway
+Environment=WLR_NO_HARDWAR_CURSORS=1
+ExecStart=/usr/bin/sway --unsupported-gpu
 Restart=on-failure
 
 [Install]
