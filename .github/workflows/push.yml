@@ -32,9 +32,9 @@ jobs:
             ls -la "${HOME}"
             exit 1
           fi
-      - name: Verify Ansible bootstrap works
+      - name: Verify yadm Ansible bootstrap works
         run: |
-          ansible-playbook ~/.config/ansible/site.yml
+          yadm bootstrap
 
   test-devcontainer:
     name: Test Devcontainer
