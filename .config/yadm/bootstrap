@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ansible-playbook ~/.config/ansible/site.yml
+if [ -f ~/.config/ansible/site.yml ]; then
+  ansible-playbook ~/.config/ansible/site.yml
+fi
 
 if command -v vim >/dev/null 2>&1; then
   echo "Bootstraping Vim"

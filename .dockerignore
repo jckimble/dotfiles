@@ -7,4 +7,4 @@
 .viminfo
 .zcompdump
 
-ansible
+.config/ansible

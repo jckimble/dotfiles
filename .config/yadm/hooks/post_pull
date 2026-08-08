@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ansible-playbook ~/.config/ansible/site.yml
+if [[ -f "$YADM_HOOK_WORK/README.md" ]]; then
+    git update-index --skip-worktree README.md
+    rm -f "$YADM_HOOK_WORK/README.md"
+fi
+
+if [ -f ~/.config/ansible/site.yml ]; then
+  ansible-playbook ~/.config/ansible/site.yml
+fi

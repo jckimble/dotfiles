@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
+if [[ -f "$YADM_HOOK_WORK/README.md" ]]; then
+    git update-index --skip-worktree README.md
+    rm -f "$YADM_HOOK_WORK/README.md"
+fi
+
 # AVF weston.ini rewrite
 yadm checkout --force --quiet "$HOME/.config/weston.ini"
